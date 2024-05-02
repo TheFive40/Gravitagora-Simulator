@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="contenedorPrincipal" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.TiroParabolicoController">
+   <children>
+      <VBox prefHeight="467.0" prefWidth="779.0">
+         <children>
+            <HBox prefHeight="413.0" prefWidth="631.0" spacing="10">
+               <children>
+                  <VBox prefHeight="409.0" prefWidth="153.0" spacing="5">
+                     <children>
+                        <Label text="Tipo de Movimiento" />
+                        <RadioButton fx:id="caidaLibreRadioButton" onAction="#eventoCaidaLibreRadioButton" text="Caida Libre" />
+                        <RadioButton fx:id="mruRadioButton" prefHeight="17.0" prefWidth="123.0" text="MRU" />
+                        <RadioButton fx:id="movCircularRadioButton" onAction="#eventoMovCircularRadioButton" prefHeight="17.0" prefWidth="144.0" text="Movimiento Circular" />
+                        <RadioButton fx:id="tiroParabolicoRadioButton" text="Tiro Parabólico" />
+                        <Button alignment="CENTER" onAction="#iniciarSimulacion" text="Iniciar Simulación">
+                           <VBox.margin>
+                              <Insets left="10.0" top="90.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" onAction="#reiniciarSimulacion" prefHeight="25.0" prefWidth="139.0" text="Reiniciar Simulacion">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black;">
+                     <children>
+                        <Circle fx:id="ruedaTrasera" fill="DODGERBLUE" layoutX="21.0" layoutY="399.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="ruedaDelantera" fill="DODGERBLUE" layoutX="50.0" layoutY="399.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Rectangle fx:id="vehiculo" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="14.0" layoutY="375.0" stroke="BLACK" strokeType="INSIDE" width="43.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="396.0" prefWidth="151.0">
+                     <children>
+                        <VBox layoutX="1.0" layoutY="55.0" spacing="5">
+                           <children>
+                              <ComboBox fx:id="comboGravedades" prefWidth="150.0" />
+                              <TextField fx:id="textFieldTiempo" promptText="Tiempo" />
+                              <TextField fx:id="textFieldVelocidadInicial" promptText="Velocidad Inicial" />
+                           </children>
+                        </VBox>
+                        <Label layoutX="20.0" text="Condiciones Iniciales" />
+                        <Label layoutX="1.0" layoutY="32.0" text="Caida Libre" />
+                        <Label layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
+                        <VBox layoutX="1.0" layoutY="173.0" spacing="5">
+                           <children>
+                              <TextField fx:id="textFieldVelocidadMru" promptText="Velocidad" />
+                           </children>
+                        </VBox>
+                        <Label layoutX="1.0" layoutY="214.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

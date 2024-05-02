@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane fx:id="contenedorPrincipal" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MainController">
+   <children>
+      <VBox prefHeight="467.0" prefWidth="779.0">
+      
+          <padding>
+              <Insets bottom="20" left="20" right="20" top="20" />
+          </padding>
+         <children>
+         
+             <HBox prefHeight="413.0" prefWidth="631.0" spacing="10">
+            <children>
+                    <!-- Parte izquierda con radio buttons -->
+                    <VBox prefHeight="409.0" prefWidth="153.0" spacing="5">
+                       <children>
+                           <Label text="Tipo de Movimiento" />
+                           <RadioButton fx:id="caidaLibreRadioButton" text="Caida Libre" />
+                           <RadioButton fx:id="mruRadioButton" onAction="#eventoRadioButtonMru" prefHeight="17.0" prefWidth="123.0" text="MRU" />
+                           <RadioButton fx:id="movCircularRadioButton" onAction="#eventoMovCircularRadioButton" prefHeight="17.0" prefWidth="144.0" text="Movimiento Circular" />
+                           <RadioButton fx:id="tiroParabolicoRadioButton" onAction="#eventoTiroParabolicoRadioButton" text="Tiro Parabólico" />
+                     
+                                     <!-- Botón para iniciar la simulación -->
+                         <Button alignment="CENTER" onAction="#iniciarSimulacion" prefHeight="25.0" prefWidth="138.0" text="Iniciar Simulación">
+                           <VBox.margin>
+                              <Insets top="90.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" onAction="#reiniciarSimulacion" prefHeight="25.0" prefWidth="139.0" text="Reiniciar Simulacion">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <AnchorPane prefHeight="153.0" prefWidth="157.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="-1.0" layoutY="6.0" prefHeight="17.0" prefWidth="144.0" text="Informacion del Mov" textAlignment="CENTER" />
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="17.0" prefWidth="123.0" text="Velocidad" />
+                              <TextField fx:id="textFieldVelocidadObjeto" editable="false" layoutX="13.0" layoutY="64.0" prefHeight="25.0" prefWidth="123.0" />
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="104.0" prefHeight="17.0" prefWidth="123.0" text="Intervalo" />
+                              <TextField fx:id="textFieldTiempoObjeto" editable="false" layoutX="13.0" layoutY="127.0" prefHeight="25.0" prefWidth="123.0" />
+                           </children>
+                        </AnchorPane>
+                       </children>
+                    </VBox>
+                  <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black;">
+                     <children>
+                        <Circle fx:id="particula" fill="DODGERBLUE" layoutX="217.0" layoutY="14.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="396.0" prefWidth="151.0">
+                     <children>
+                  
+                          <!-- Parte derecha con textfields -->
+                          <VBox layoutX="1.0" layoutY="55.0" spacing="5">
+                     <children>
+                              <ComboBox fx:id="comboGravedades" onAction="#eventoEstablecerGravedad" prefWidth="150.0" />
+                              <TextField fx:id="textFieldTiempo" promptText="Tiempo" />
+                              <TextField fx:id="textFieldVelocidadInicial" promptText="Velocidad Inicial" />
+                     </children>
+                              <!-- Otros campos para condiciones iniciales -->
+                          </VBox>
+                        <Label layoutX="20.0" text="Condiciones Iniciales" />
+                        <Label layoutX="1.0" layoutY="32.0" text="Caida Libre" />
+                        <Label layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
+                        <VBox layoutX="1.0" layoutY="173.0" spacing="5">
+                           <children>
+                              <TextField fx:id="textFieldVelocidadMru" promptText="Velocidad" />
+                           </children>
+                        </VBox>
+                        <Label layoutX="1.0" layoutY="214.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                     </children>
+                  </AnchorPane>
+            </children>
+             </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
