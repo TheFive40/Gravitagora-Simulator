@@ -2,7 +2,10 @@ package org.simulador.es.controller;
 import javafx.beans.property.MapProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 import util.General;
@@ -15,8 +18,8 @@ import org.simulador.es.data.Gravedad;
 import org.simulador.es.model.CaidaLibre;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
+
 @Getter
 @Setter
 public class MainController implements Initializable {
@@ -50,9 +53,41 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane contenedorPrincipal;
 
-
+    @FXML
+    private TextField textFieldVelocidadMru;
+    @FXML
+    private  TextField textFieldRadio;
+    @FXML
+    private TextField textFieldMovCircular;
+    @FXML
+    private TextField textFieldVelocidadAngular;
+    @FXML
+    private TextField textFieldTiempoMru;
     @FXML
     private TextField textFieldVelocidadInicial;
+
+    @FXML
+    private MenuItem menuItemMru;
+
+    @FXML
+    private MenuItem menuItemDev;
+
+    @FXML
+    private MenuItem menuItemTiroParabolico;
+
+    @FXML
+    private MenuItem menuItemGpt4;
+    @FXML
+    private MenuItem menuItemCaidaLibre;
+
+    @FXML
+    private MenuItem menuItemMovCircular;
+    @FXML
+    private MenuItem menuItemAgradecimientos;
+
+    @FXML
+    private Slider sliderAnguloInicial;
+
     private CaidaLibre caidaLibre;
 
     @FXML
@@ -103,17 +138,28 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void eventoRadioButtonMru(ActionEvent event) throws IOException {
-        General.agregarContenedorPadre("/view/MruFXML.fxml",contenedorPrincipal);
+    public void eventoRadioButtonMru(ActionEvent event) {
+        General.agregarContenedorPadre(General.RUTA_MRU, contenedorPrincipal);
     }
+
     @FXML
-    void eventoMovCircularRadioButton(ActionEvent event) throws IOException {
-        General.agregarContenedorPadre("/view/MovCircularFXML.fxml",contenedorPrincipal);
+    void eventoMovCircularRadioButton(ActionEvent event) {
+        General.agregarContenedorPadre(General.RUTA_MOV_CIRCULAR, contenedorPrincipal);
     }
+
     @FXML
-    void eventoTiroParabolicoRadioButton(ActionEvent event) throws IOException {
-        General.agregarContenedorPadre("/view/TiroParabolicoFXML.fxml",contenedorPrincipal);
+    void eventoTiroParabolicoRadioButton(ActionEvent event) {
+        General.agregarContenedorPadre(General.RUTA_TIRO_PARABOLICO, contenedorPrincipal);
     }
+
+    @FXML
+    void eventoGpt4MenuItem(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_GPT_4);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.show();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Inicializacion de objetos

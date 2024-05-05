@@ -14,7 +14,6 @@ import lombok.Setter;
 @Setter
 public class Mru {
 
-
     private Circle ruedaTrasera;
 
     private Circle ruedaDelantera;

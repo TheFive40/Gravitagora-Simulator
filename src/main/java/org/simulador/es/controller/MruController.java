@@ -69,16 +69,16 @@ public class MruController implements Initializable {
 
     @FXML
     void eventoCaidaLibreRadioButton(ActionEvent event) throws IOException {
-        General.agregarContenedorPadre("/view/MainFXML.fxml", contenedorPrincipal);
+        General.agregarContenedorPadre(General.RUTA_CAIDA_LIBRE, contenedorPrincipal);
     }
 
     @FXML
     void eventoMovCircularRadioButton(ActionEvent event) throws IOException {
-        General.agregarContenedorPadre("/view/MovCircularFXML.fxml",contenedorPrincipal);
+        General.agregarContenedorPadre(General.RUTA_MOV_CIRCULAR,contenedorPrincipal);
     }
     @FXML
     void eventoTiroParabolicoRadioButton(ActionEvent event) throws IOException {
-        General.agregarContenedorPadre("/view/TiroParabolicoFXML.fxml",contenedorPrincipal);
+        General.agregarContenedorPadre(General.RUTA_TIRO_PARABOLICO,contenedorPrincipal);
 
     }
     @FXML
@@ -98,10 +98,6 @@ public class MruController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Inicializacion de objetos
         mru = new Mru(ruedaTrasera, ruedaDelantera, vehiculo);
-        //Setteo de Atributos a los Objetos previamente Definidos
-        mruRadioButton.setSelected(true);
-        comboGravedades.setDisable(true);
-        textFieldTiempo.setDisable(true);
-        textFieldVelocidadInicial.setDisable(true);
+
     }
 }

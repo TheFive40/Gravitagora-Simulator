@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="contenedorPrincipal" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MruController">
    <children>
       <VBox prefHeight="467.0" prefWidth="779.0">
@@ -19,7 +18,7 @@
                      <children>
                         <Label text="Tipo de Movimiento" />
                         <RadioButton fx:id="caidaLibreRadioButton" onAction="#eventoCaidaLibreRadioButton" text="Caida Libre" />
-                        <RadioButton fx:id="mruRadioButton" prefHeight="17.0" prefWidth="123.0" text="MRU" />
+                        <RadioButton fx:id="mruRadioButton" prefHeight="17.0" prefWidth="123.0" selected="true" text="MRU" />
                         <RadioButton fx:id="movCircularRadioButton" onAction="#eventoMovCircularRadioButton" prefHeight="17.0" prefWidth="144.0" text="Movimiento Circular" />
                         <RadioButton fx:id="tiroParabolicoRadioButton" onAction="#eventoTiroParabolicoRadioButton" text="Tiro Parabólico" />
                         <Button alignment="CENTER" onAction="#iniciarSimulacion" prefHeight="25.0" prefWidth="136.0" text="Iniciar Simulación">
@@ -52,9 +51,9 @@
                      <children>
                         <VBox layoutX="1.0" layoutY="55.0" spacing="5">
                            <children>
-                              <ComboBox fx:id="comboGravedades" prefWidth="150.0" />
-                              <TextField fx:id="textFieldTiempo" promptText="Tiempo" />
-                              <TextField fx:id="textFieldVelocidadInicial" promptText="Velocidad Inicial" />
+                              <ComboBox fx:id="comboGravedades" disable="true" prefWidth="150.0" />
+                              <TextField fx:id="textFieldTiempo" disable="true" promptText="Tiempo" />
+                              <TextField fx:id="textFieldVelocidadInicial" disable="true" promptText="Velocidad Inicial" />
                            </children>
                         </VBox>
                         <Label layoutX="20.0" text="Condiciones Iniciales" />
@@ -67,6 +66,11 @@
                            </children>
                         </VBox>
                         <Label layoutX="-1.0" layoutY="240.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                        <TextField fx:id="textFieldRadio" disable="true" layoutX="2.0" layoutY="264.0" promptText="Radio de trayectoria" />
+                        <TextField fx:id="textFieldVelocidadAngular" disable="true" layoutX="1.0" layoutY="298.0" promptText="Velocidad Angular" />
+                        <TextField fx:id="textFieldMovCircular" disable="true" layoutX="1.0" layoutY="331.0" promptText="Tiempo" />
+                        <Label layoutX="-1.0" layoutY="364.0" prefHeight="17.0" prefWidth="80.0" text="Angulo Inicial" />
+                        <Slider fx:id="sliderAnguloInicial" disable="true" layoutX="2.0" layoutY="392.0" prefHeight="14.0" prefWidth="149.0" />
                      </children>
                   </AnchorPane>
                </children>

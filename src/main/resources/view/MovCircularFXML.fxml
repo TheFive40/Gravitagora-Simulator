@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="contenedorPrincipal" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MovCircularController">
    <children>
       <VBox prefHeight="467.0" prefWidth="779.0">
@@ -19,8 +18,8 @@
                      <children>
                         <Label text="Tipo de Movimiento" />
                         <RadioButton fx:id="caidaLibreRadioButton" onAction="#eventoCaidaLibreRadioButton" text="Caida Libre" />
-                        <RadioButton fx:id="mruRadioButton" prefHeight="17.0" prefWidth="123.0" text="MRU" />
-                        <RadioButton fx:id="movCircularRadioButton"  prefHeight="17.0" prefWidth="144.0" text="Movimiento Circular" />
+                        <RadioButton fx:id="mruRadioButton" onAction="#eventoMruRadioButton" prefHeight="17.0" prefWidth="123.0" text="MRU" />
+                        <RadioButton fx:id="movCircularRadioButton" prefHeight="17.0" prefWidth="144.0" selected="true" text="Movimiento Circular" />
                         <RadioButton fx:id="tiroParabolicoRadioButton" onAction="#eventoTiroParabolicoRadioButton" text="Tiro Parabólico" />
                         <Button alignment="CENTER" onAction="#iniciarSimulacion" text="Iniciar Simulación">
                            <VBox.margin>
@@ -36,18 +35,16 @@
                   </VBox>
                   <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black;">
                      <children>
-                        <Circle fx:id="ruedaTrasera" fill="DODGERBLUE" layoutX="21.0" layoutY="399.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="ruedaDelantera" fill="DODGERBLUE" layoutX="50.0" layoutY="399.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Rectangle fx:id="vehiculo" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="14.0" layoutY="375.0" stroke="BLACK" strokeType="INSIDE" width="43.0" />
+                        <Circle fx:id="particula" fill="DODGERBLUE" layoutX="214.0" layoutY="180.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="396.0" prefWidth="151.0">
                      <children>
                         <VBox layoutX="1.0" layoutY="55.0" spacing="5">
                            <children>
-                              <ComboBox fx:id="comboGravedades" prefWidth="150.0" />
-                              <TextField fx:id="textFieldTiempo" promptText="Tiempo" />
-                              <TextField fx:id="textFieldVelocidadInicial" promptText="Velocidad Inicial" />
+                              <ComboBox fx:id="comboGravedades" disable="true" prefWidth="150.0" />
+                              <TextField fx:id="textFieldTiempo" disable="true" promptText="Tiempo" />
+                              <TextField fx:id="textFieldVelocidadInicial" disable="true" promptText="Velocidad Inicial" />
                            </children>
                         </VBox>
                         <Label layoutX="20.0" text="Condiciones Iniciales" />
@@ -55,10 +52,16 @@
                         <Label layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
                         <VBox layoutX="1.0" layoutY="173.0" spacing="5">
                            <children>
-                              <TextField fx:id="textFieldVelocidadMru" promptText="Velocidad" />
+                              <TextField fx:id="textFieldVelocidadMru" disable="true" promptText="Velocidad" />
+                              <TextField fx:id="textFieldTiempoMru" disable="true" layoutX="10.0" layoutY="10.0" promptText="Tiempo" />
                            </children>
                         </VBox>
-                        <Label layoutX="1.0" layoutY="214.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                        <Label layoutX="-1.0" layoutY="242.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                        <TextField fx:id="textFieldRadio" layoutX="2.0" layoutY="265.0" promptText="Radio de trayectoria" />
+                        <TextField fx:id="textFieldVelocidadAngular" layoutX="2.0" layoutY="296.0" promptText="Velocidad Angular" />
+                        <TextField fx:id="textFieldMovCircular" layoutX="2.0" layoutY="327.0" promptText="Tiempo" />
+                        <Slider fx:id="sliderAnguloInicial" layoutX="1.0" layoutY="385.0" prefHeight="14.0" prefWidth="149.0" />
+                        <Label layoutX="2.0" layoutY="359.0" prefHeight="17.0" prefWidth="80.0" text="Angulo Inicial" />
                      </children>
                   </AnchorPane>
                </children>
