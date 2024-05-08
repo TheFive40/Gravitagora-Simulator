@@ -8,7 +8,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 
-<VBox alignment="CENTER" prefHeight="516.0" prefWidth="774.0" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.GraficoCaidaLibreController">
+<VBox alignment="CENTER" prefHeight="516.0" prefWidth="774.0" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.GraficoMovCircularController">
    <children>
    
        <MenuBar>
@@ -31,7 +31,6 @@
                           <String fx:value="Velocidad vs Tiempo" />
                           <String fx:value="Posición vs Tiempo" />
                           <String fx:value="Aceleración vs Tiempo" />
-
                           <!-- Agrega más opciones según sea necesario -->
                       </FXCollections>
                   </items>

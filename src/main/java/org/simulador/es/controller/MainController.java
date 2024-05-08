@@ -17,7 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Shape;
 import org.simulador.es.data.Gravedad;
-import util.animations.CaidaLibre;
+import util.animations.CaidaLibreAnimation;
 
 import java.io.IOException;
 import java.net.URL;
@@ -91,7 +91,7 @@ public class MainController implements Initializable {
     @FXML
     private Slider sliderAnguloInicial;
 
-    private CaidaLibre caidaLibre;
+    private CaidaLibreAnimation caidaLibre;
 
     @FXML
     public void iniciarSimulacion(ActionEvent event) {
@@ -200,7 +200,24 @@ public class MainController implements Initializable {
 
 
     }
-
+    @FXML
+    void eventoGraficarMovCircular (ActionEvent event) throws IOException {
+        //Este codigo verifica posibles errores antes de iniciar a graficar
+        if (LocalStorage.velocidadTiempoMovCircular != null && LocalStorage.velocidadTiempoMovCircular.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.velocidadTiempoMovCircular == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        //Aqui termina el codigo de la verificacion
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_MOV_CIRCULAR_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     void eventoGpt4MenuItem(ActionEvent event) throws IOException {
         Parent parent = General.obtenerContenedorPadre(General.RUTA_GPT_4);
@@ -212,7 +229,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Inicializacion de objetos
-        caidaLibre = new CaidaLibre(particula, contenedorAnimacion);
+        caidaLibre = new CaidaLibreAnimation(particula, contenedorAnimacion);
         //Setteo de Atributos a los Objetos previamente Definidos
         comboGravedades.getItems().addAll("Tierra", "Luna", "Marte", "Jupiter"
                 , "Saturno");

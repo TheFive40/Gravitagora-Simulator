@@ -11,7 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
 import lombok.Setter;
-import util.animations.Mru;
+import util.animations.MruAnimation;
 import util.General;
 
 import java.io.IOException;
@@ -63,7 +63,7 @@ public class MruController implements Initializable {
     @FXML
     private Circle ruedaTrasera;
 
-    private Mru mru;
+    private MruAnimation mru;
 
     @FXML
     void eventoCaidaLibreRadioButton(ActionEvent event) throws IOException {
@@ -97,7 +97,7 @@ public class MruController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Inicializacion de objetos
-        mru = new Mru(ruedaTrasera, ruedaDelantera, vehiculo, contenedorAnimacion);
+        mru = new MruAnimation(ruedaTrasera, ruedaDelantera, vehiculo, contenedorAnimacion);
 
     }
 }

@@ -9,7 +9,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
-import util.animations.MovCircular;
+import util.animations.MovCircularAnimation;
 import util.General;
 
 import java.net.URL;
@@ -61,7 +61,7 @@ public class MovCircularController implements Initializable {
     @FXML
     private RadioButton movCircularRadioButton;
 
-    private MovCircular movCircular;
+    private MovCircularAnimation movCircular;
 
 
 
@@ -90,7 +90,7 @@ public class MovCircularController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        movCircular = new MovCircular(particula,contenedorAnimacion);
+        movCircular = new MovCircularAnimation(particula,contenedorAnimacion);
         movCircularRadioButton.setSelected(true);
     }
 }

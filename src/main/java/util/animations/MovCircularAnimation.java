@@ -6,13 +6,15 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
+import util.General;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.simulador.es.data.LocalStorage.*;
 
 @Setter
 @Getter
-public class MovCircular {
+public class MovCircularAnimation {
     private double radio = 100;
     private double velocidadAngular;
     private double velocidadTangencial;
@@ -24,7 +26,7 @@ public class MovCircular {
     private Circle particula;
     private AnchorPane contenedorAnimacion;
 
-    public MovCircular(Circle particula, AnchorPane contenedorAnimacion) {
+    public MovCircularAnimation(Circle particula, AnchorPane contenedorAnimacion) {
         this.particula = particula;
         this.contenedorAnimacion = contenedorAnimacion;
     }
@@ -40,14 +42,13 @@ public class MovCircular {
             double angle = (frecuenciaAngular * tiempo.get()) % 360;
             double x = CenterX + radio * Math.cos(Math.toRadians(angle));
             double y = CenterY + radio * Math.sin(Math.toRadians(angle));
-
             //Calculos de velocidades  y aceleracion Centripeta y Angular
             velocidadAngular = angle / tiempo.get();
             velocidadTangencial = radio * velocidadAngular;
             aceleracionCentripeta = Math.pow(velocidadTangencial,2)/radio;
             aceleracionAngular = velocidadAngular/tiempo.get();
             posicionAngular = Math.toRadians(velocidadAngular)*tiempo.get();
-
+            //Guardamos la informacion en el LocalStorage
             velocidadTiempoMovCircular.put(tiempo.get(),velocidadAngular);
             aceleracionTiempoMovCircular.put(tiempo.get(),aceleracionAngular);
             posicionTiempoMovCircular.put(tiempo.get(),posicionAngular);
@@ -55,6 +56,7 @@ public class MovCircular {
             particula.setLayoutX(x);
             particula.setCenterY(y);
         }));
+        General.tiempoAnimacion = getTiempo();
         timeline.setOnFinished(event -> tiempo.set(0));
         timeline.setCycleCount(getTiempo()*1000/16);
         timeline.play();

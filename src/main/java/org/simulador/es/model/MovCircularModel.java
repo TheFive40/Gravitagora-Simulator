@@ -2,51 +2,41 @@ package org.simulador.es.model;
 
 import javafx.beans.property.DoubleProperty;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public class MovCircularModel {
-    private DoubleProperty velocidadAngular = new SimpleDoubleProperty();
-    private DoubleProperty aceleracionAngular = new SimpleDoubleProperty();
-    private DoubleProperty posicionAngular = new SimpleDoubleProperty();
+    private IntegerProperty tiempo = new SimpleIntegerProperty();
+    private DoubleProperty valor = new SimpleDoubleProperty();
 
-    public MovCircularModel(double velocidad, double aceleracion, double posicion){
-        setVelocidadAngular(velocidad);
-        setAceleracionAngular(aceleracion);
-        setPosicionAngular(posicion);
-    }
-    public double getVelocidadAngular() {
-        return velocidadAngular.get();
+    public MovCircularModel(int tiempo, double valor) {
+        setTiempo(tiempo);
+        setValor(valor);
     }
 
-    public DoubleProperty velocidadAngularProperty() {
-        return velocidadAngular;
+    public double getTiempo() {
+        return tiempo.get();
     }
 
-    public void setVelocidadAngular(double velocidadAngular) {
-        this.velocidadAngular.set(velocidadAngular);
+
+    public double getValor() {
+        return valor.get();
     }
 
-    public double getAceleracionAngular() {
-        return aceleracionAngular.get();
+    public IntegerProperty tiempoProperty() {
+        return tiempo;
     }
 
-    public DoubleProperty aceleracionAngularProperty() {
-        return aceleracionAngular;
+    public void setTiempo(int tiempo) {
+        this.tiempo.set(tiempo);
     }
 
-    public void setAceleracionAngular(double aceleracionAngular) {
-        this.aceleracionAngular.set(aceleracionAngular);
+    public DoubleProperty valorProperty() {
+        return valor;
     }
 
-    public double getPosicionAngular() {
-        return posicionAngular.get();
-    }
-
-    public DoubleProperty posicionAngularProperty() {
-        return posicionAngular;
-    }
-
-    public void setPosicionAngular(double posicionAngular) {
-        this.posicionAngular.set(posicionAngular);
+    public void setValor(double valor) {
+        this.valor.set(valor);
     }
 }

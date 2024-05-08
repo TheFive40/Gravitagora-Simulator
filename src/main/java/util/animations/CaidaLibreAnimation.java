@@ -20,7 +20,7 @@ import static org.simulador.es.data.LocalStorage.*;
 
 @Getter
 @Setter
-public class CaidaLibre {
+public class CaidaLibreAnimation {
 
     private Circle particula;
 
@@ -38,7 +38,7 @@ public class CaidaLibre {
 
     private TextField textFieldTiempoObjeto;
 
-    public CaidaLibre(Shape particula, AnchorPane pane) {
+    public CaidaLibreAnimation(Shape particula, AnchorPane pane) {
         this.particula = (Circle) particula;
         velocidadTiempoCaidaLibre = new SimpleMapProperty<>();
         velocidadTiempoCaidaLibre.set(FXCollections.observableHashMap());

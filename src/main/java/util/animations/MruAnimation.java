@@ -10,7 +10,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
-import org.simulador.es.data.LocalStorage;
 import util.General;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -19,7 +18,7 @@ import static org.simulador.es.data.LocalStorage.*;
 
 @Getter
 @Setter
-public class Mru {
+public class MruAnimation {
 
 
     private Circle ruedaTrasera;
@@ -38,7 +37,7 @@ public class Mru {
 
     private AnchorPane contenedorPrincipal;
 
-    public Mru(Circle ruedaTrasera, Circle ruedaDelantera, Rectangle vehiculo, AnchorPane contenedorPrincipal) {
+    public MruAnimation(Circle ruedaTrasera, Circle ruedaDelantera, Rectangle vehiculo, AnchorPane contenedorPrincipal) {
         this.ruedaTrasera = ruedaTrasera;
         this.ruedaDelantera = ruedaDelantera;
         this.vehiculo = vehiculo;

@@ -92,7 +92,7 @@
               <items>
                 <MenuItem fx:id="menuItemCaidaLibre" mnemonicParsing="false" onAction="#eventoGraficarCaidaLibre" text="Caida libre" />
                   <MenuItem fx:id="menuItemMru" mnemonicParsing="false" onAction="#eventoGraficarMru" text="Movimiento Rectilineo Uniforme" />
-                  <MenuItem fx:id="menuItemMovCircular" mnemonicParsing="false" text="Movimiento Circular" />
+                  <MenuItem fx:id="menuItemMovCircular" mnemonicParsing="false" onAction="#eventoGraficarMovCircular" text="Movimiento Circular" />
                   <MenuItem fx:id="menuItemTiroParabolico" mnemonicParsing="false" text="Tiro parabolico" />
               </items>
             </Menu>

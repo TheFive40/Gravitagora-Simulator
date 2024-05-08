@@ -12,7 +12,6 @@ import org.simulador.es.dao.MruDAO;
 import org.simulador.es.data.LocalStorage;
 import org.simulador.es.model.MruModel;
 import util.General;
-import util.animations.Mru;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,13 +35,7 @@ public class GraficoMruController implements Initializable {
 
     private MruDAO mruDAO;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        mruDAO = new MruDAO();
-        llenarTabla();
-        llenarGraficoLineal(LocalStorage.velocidadTiempoMru);
-        eventoGraficoSeleccionado();
-    }
+
     void llenarTabla(){
         desplazamientoTiempoMru.get().entrySet().removeIf(x->x.getKey()> General.tiempoAnimacion);
         velocidadTiempoMru.get().entrySet().removeIf(x->x.getKey()>General.tiempoAnimacion);
@@ -71,6 +64,7 @@ public class GraficoMruController implements Initializable {
     }
     public void llenarGraficoLineal(MapProperty<?extends Number,?extends Number> mapProperty) {
         lineChartVelocidadTiempo.getData().clear();
+        mruDAO.getList().clear();
         XYChart.Series<Number, Number> dataSeries = new XYChart.Series<>();
 
         mapProperty.forEach((k, v) -> {
@@ -78,5 +72,12 @@ public class GraficoMruController implements Initializable {
             mruDAO.add(new MruModel((int) k, (double) v));
         });
         lineChartVelocidadTiempo.getData().addAll(dataSeries);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        mruDAO = new MruDAO();
+        llenarTabla();
+        llenarGraficoLineal(LocalStorage.velocidadTiempoMru);
+        eventoGraficoSeleccionado();
     }
 }

@@ -21,12 +21,13 @@ public class General {
     public static String RUTA_MOV_CIRCULAR = "/view/MovCircularFXML.fxml";
     public static String RUTA_GPT_4 = "/view/Gpt4FXML.fxml";
     public static String RUTA_MRU_GRAFICO = "/view/MruGraficoFXML.fxml";
-
+    public static String RUTA_MOV_CIRCULAR_GRAFICO = "/view/MovCircularGraficoFXML.fxml";
     public static String RUTA_CAIDA_LIBRE_GRAFICO = "/view/CaidaLibreGraficoFXML.fxml";
     public static final String API_URL = "https://api.openai.com/v1/chat/completions";
     public static final String API_KEY = "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";
     private static String MODEL = "gpt-3.5-turbo";
     public static int tiempoAnimacion;
+
     public static void mostrarMensajeAlerta(String titulo, String cabecera, String contenido,
                                             Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
