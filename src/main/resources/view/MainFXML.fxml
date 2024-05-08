@@ -58,7 +58,7 @@
                      <children>
                   
                           <!-- Parte derecha con textfields -->
-                          <VBox layoutX="1.0" layoutY="55.0" spacing="5">
+                          <VBox layoutX="2.0" layoutY="42.0" spacing="5">
                      <children>
                               <ComboBox fx:id="comboGravedades" onAction="#eventoEstablecerGravedad" prefWidth="150.0" />
                               <TextField fx:id="textFieldTiempo" promptText="Tiempo" />
@@ -67,19 +67,22 @@
                               <!-- Otros campos para condiciones iniciales -->
                           </VBox>
                         <Label layoutX="20.0" text="Condiciones Iniciales" />
-                        <Label layoutX="1.0" layoutY="32.0" text="Caida Libre" />
-                        <Label layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
-                        <VBox layoutX="1.0" layoutY="173.0" spacing="5">
+                        <Label layoutX="1.0" layoutY="25.0" text="Caida Libre" />
+                        <Label layoutX="1.0" layoutY="137.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
+                        <VBox layoutX="1.0" layoutY="154.0" spacing="5">
                            <children>
                               <TextField fx:id="textFieldVelocidadMru" disable="true" promptText="Velocidad" />
                               <TextField fx:id="textFieldTiempoMru" disable="true" layoutX="10.0" layoutY="10.0" promptText="Tiempo" />
                            </children>
                         </VBox>
-                        <Label layoutX="-1.0" layoutY="238.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
-                        <TextField fx:id="textFieldRadio" disable="true" layoutX="1.0" layoutY="262.0" promptText="Radio de trayectoria" />
-                        <TextField fx:id="textFieldVelocidadAngular" disable="true" layoutX="1.0" layoutY="295.0" promptText="Velocidad Angular" />
-                        <Label layoutX="1.0" layoutY="358.0" prefHeight="17.0" prefWidth="80.0" text="Angulo Inicial" />
-                        <Slider fx:id="sliderAnguloInicial" disable="true" layoutX="1.0" layoutY="385.0" prefHeight="14.0" prefWidth="149.0" />
+                        <Label layoutX="-1.0" layoutY="209.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                        <TextField fx:id="textFieldRadio" disable="true" layoutX="1.0" layoutY="226.0" promptText="Radio de trayectoria" />
+                        <TextField fx:id="textFieldVelocidadAngular" disable="true" layoutX="-1.0" layoutY="257.0" promptText="Velocidad Angular" />
+                        <Label alignment="CENTER" layoutX="2.0" layoutY="375.0" prefHeight="17.0" prefWidth="149.0" text="Angulo Inicial" />
+                        <Slider fx:id="sliderAnguloInicial" disable="true" layoutX="1.0" layoutY="392.0" prefHeight="14.0" prefWidth="149.0" />
+                        <Label layoutX="-1.0" layoutY="282.0" prefHeight="17.0" prefWidth="108.0" text="Tiro parabolico" />
+                        <TextField fx:id="textFieldTiempo1" disable="true" layoutX="-1.0" layoutY="307.0" promptText="Masa del Proyectil" />
+                        <TextField fx:id="textFieldTiempo11" disable="true" layoutX="-1.0" layoutY="341.0" promptText="Tiempo" />
                      </children>
                   </AnchorPane>
             </children>
@@ -93,7 +96,7 @@
                 <MenuItem fx:id="menuItemCaidaLibre" mnemonicParsing="false" onAction="#eventoGraficarCaidaLibre" text="Caida libre" />
                   <MenuItem fx:id="menuItemMru" mnemonicParsing="false" onAction="#eventoGraficarMru" text="Movimiento Rectilineo Uniforme" />
                   <MenuItem fx:id="menuItemMovCircular" mnemonicParsing="false" onAction="#eventoGraficarMovCircular" text="Movimiento Circular" />
-                  <MenuItem fx:id="menuItemTiroParabolico" mnemonicParsing="false" text="Tiro parabolico" />
+                  <MenuItem fx:id="menuItemTiroParabolico" mnemonicParsing="false" onAction="#eventoGraficarTiroParabolico" text="Tiro parabolico" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Asistente Virtual">

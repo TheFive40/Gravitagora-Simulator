@@ -219,6 +219,24 @@ public class MainController implements Initializable {
         stage.show();
     }
     @FXML
+    void eventoGraficarTiroParabolico(ActionEvent event) throws IOException {
+        //Este codigo verifica posibles errores antes de iniciar a graficar
+        if (LocalStorage.xVelocidadTiempoTiroParabolico != null && LocalStorage.yVelocidadTiempoTiroParabolico.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.xVelocidadTiempoTiroParabolico == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        //Aqui termina el codigo de la verificacion
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_TIRO_PARABOLICO_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     void eventoGpt4MenuItem(ActionEvent event) throws IOException {
         Parent parent = General.obtenerContenedorPadre(General.RUTA_GPT_4);
         Stage stage = new Stage();

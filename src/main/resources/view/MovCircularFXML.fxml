@@ -40,7 +40,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="396.0" prefWidth="151.0">
                      <children>
-                        <VBox layoutX="1.0" layoutY="55.0" spacing="5">
+                        <VBox layoutY="40.0" spacing="5">
                            <children>
                               <ComboBox fx:id="comboGravedades" disable="true" prefWidth="150.0" />
                               <TextField fx:id="textFieldTiempo" disable="true" promptText="Tiempo" />
@@ -48,20 +48,41 @@
                            </children>
                         </VBox>
                         <Label layoutX="20.0" text="Condiciones Iniciales" />
-                        <Label layoutX="1.0" layoutY="32.0" text="Caida Libre" />
-                        <Label layoutX="1.0" layoutY="146.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
-                        <VBox layoutX="1.0" layoutY="173.0" spacing="5">
+                        <Label layoutX="1.0" layoutY="23.0" prefHeight="17.0" prefWidth="59.0" text="Caida Libre" />
+                        <Label layoutX="1.0" layoutY="125.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
+                        <VBox layoutX="1.0" layoutY="142.0" spacing="5">
                            <children>
                               <TextField fx:id="textFieldVelocidadMru" disable="true" promptText="Velocidad" />
                               <TextField fx:id="textFieldTiempoMru" disable="true" layoutX="10.0" layoutY="10.0" promptText="Tiempo" />
                            </children>
                         </VBox>
-                        <Label layoutX="-1.0" layoutY="242.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
-                        <TextField fx:id="textFieldRadio" layoutX="2.0" layoutY="265.0" promptText="Radio de trayectoria" />
-                        <TextField fx:id="textFieldVelocidadAngular" layoutX="2.0" layoutY="296.0" promptText="Velocidad Angular" />
-                        <TextField fx:id="textFieldMovCircular" layoutX="2.0" layoutY="327.0" promptText="Tiempo" />
-                        <Slider fx:id="sliderAnguloInicial" layoutX="1.0" layoutY="385.0" prefHeight="14.0" prefWidth="149.0" />
-                        <Label layoutX="2.0" layoutY="359.0" prefHeight="17.0" prefWidth="80.0" text="Angulo Inicial" />
+                        <Label layoutX="5.0" layoutY="198.0" prefHeight="17.0" prefWidth="116.0" text="Movimiento Circular" />
+                        <VBox layoutX="2.0" layoutY="215.0" spacing="4.0">
+                           <children>
+                              <TextField fx:id="textFieldRadio" layoutX="2.0" layoutY="215.0" promptText="Radio de trayectoria" />
+                              <TextField fx:id="textFieldVelocidadAngular" promptText="Velocidad Angular" />
+                              <TextField fx:id="textFieldMovCircular" promptText="Tiempo" />
+                           </children>
+                        </VBox>
+                        <Slider fx:id="sliderAnguloInicial" disable="true" layoutX="2.0" layoutY="399.0" prefHeight="14.0" prefWidth="149.0">
+                           <padding>
+                              <Insets top="1.0" />
+                           </padding></Slider>
+                        <Label alignment="CENTER" layoutX="3.0" layoutY="379.0" prefHeight="17.0" prefWidth="151.0" text="Angulo Inicial">
+                           <padding>
+                              <Insets top="1.0" />
+                           </padding></Label>
+                        <Label layoutX="6.0" layoutY="308.0" prefHeight="17.0" prefWidth="109.0" text="Tiro parabolico" />
+                        <VBox layoutX="2.0" layoutY="325.0" spacing="4.0">
+                           <children>
+                              <TextField fx:id="textFieldMovCircular1" disable="true" layoutX="2.0" layoutY="319.0" promptText="Tiempo">
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <TextField fx:id="textFieldMovCircular11" disable="true" promptText="Tiempo" />
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
                </children>

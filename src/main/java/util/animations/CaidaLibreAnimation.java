@@ -72,7 +72,7 @@ public class CaidaLibreAnimation {
                 particula.setTranslateY(15.0);
             }
             //Guardamos la informacion en el LocalStorage
-            velocidadTiempoCaidaLibre.put(tiempo.get(), velocidad);
+            velocidadTiempoCaidaLibre.put(tiempo.get(), velocidad*100);
             aceleracionCaidaLibre.put(tiempo.get(), getGravedad());
             posicionTiempoCaidaLibre.put(tiempo.get(),desplazamiento);
         }));
@@ -83,7 +83,7 @@ public class CaidaLibreAnimation {
 
 
     private double calcularVelocidad(int tiempo) {
-        return getVelocidadInicial() + (getGravedad() * tiempo);
+        return getVelocidadInicial() + (getGravedad() * tiempo/100);
     }
 
 
