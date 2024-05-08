@@ -34,7 +34,7 @@
                         <AnchorPane prefHeight="153.0" prefWidth="157.0">
                            <children>
                               <Label alignment="CENTER" layoutX="-1.0" layoutY="6.0" prefHeight="17.0" prefWidth="144.0" text="Informacion del Mov" textAlignment="CENTER" />
-                              <Label alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="17.0" prefWidth="123.0" text="Velocidad" />
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="17.0" prefWidth="123.0" text="Desplazamiento" />
                               <TextField fx:id="textFieldVelocidadObjeto" editable="false" layoutX="13.0" layoutY="64.0" prefHeight="25.0" prefWidth="123.0" />
                            </children>
                         </AnchorPane>

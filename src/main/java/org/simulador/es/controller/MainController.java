@@ -1,4 +1,5 @@
 package org.simulador.es.controller;
+
 import javafx.beans.property.MapProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
@@ -8,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
+import org.simulador.es.data.LocalStorage;
 import util.General;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Shape;
 import org.simulador.es.data.Gravedad;
-import org.simulador.es.model.CaidaLibre;
+import util.animations.CaidaLibre;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,7 +59,7 @@ public class MainController implements Initializable {
     @FXML
     private TextField textFieldVelocidadMru;
     @FXML
-    private  TextField textFieldRadio;
+    private TextField textFieldRadio;
     @FXML
     private TextField textFieldMovCircular;
     @FXML
@@ -106,7 +109,6 @@ public class MainController implements Initializable {
         //Reseteamos los datos anteriores que puedan haber en la tabla de Velocidad Contra Tiempo
         MapProperty<Integer, Double> mapaVelocidadTiempo = new SimpleMapProperty<>();
         mapaVelocidadTiempo.set(FXCollections.observableHashMap());
-        caidaLibre.setVelocidadTiempo(mapaVelocidadTiempo);
     }
 
     @FXML
@@ -115,18 +117,27 @@ public class MainController implements Initializable {
         switch (gravedades) {
             case "Tierra" -> {
                 caidaLibre.setGravedad(Gravedad.TIERRA);
+                caidaLibre.setGravedad(Gravedad.TIERRA);
             }
             case "Luna" -> {
                 caidaLibre.setGravedad(Gravedad.LUNA);
+                caidaLibre.setGravedad(Gravedad.LUNA);
+
             }
             case "Marte" -> {
                 caidaLibre.setGravedad(Gravedad.MARTE);
+                caidaLibre.setGravedad(Gravedad.MARTE);
+
             }
             case "Jupiter" -> {
                 caidaLibre.setGravedad(Gravedad.JUPITER);
+                caidaLibre.setGravedad(Gravedad.JUPITER);
+
             }
             case "Saturno" -> {
                 caidaLibre.setGravedad(Gravedad.SATURNO);
+                caidaLibre.setGravedad(Gravedad.SATURNO);
+
             }
             default -> {
                 General.mostrarMensajeAlerta("Opcion invalida",
@@ -150,6 +161,44 @@ public class MainController implements Initializable {
     @FXML
     void eventoTiroParabolicoRadioButton(ActionEvent event) {
         General.agregarContenedorPadre(General.RUTA_TIRO_PARABOLICO, contenedorPrincipal);
+    }
+
+    @FXML
+    void eventoGraficarCaidaLibre(ActionEvent event) throws IOException {
+        if (LocalStorage.velocidadTiempoCaidaLibre != null && LocalStorage.velocidadTiempoCaidaLibre.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.velocidadTiempoCaidaLibre == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_CAIDA_LIBRE_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void eventoGraficarMru(ActionEvent event) throws IOException {
+        //Este codigo verifica posibles errores antes de iniciar a graficar
+        if (LocalStorage.velocidadTiempoMru != null && LocalStorage.velocidadTiempoMru.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.velocidadTiempoMru == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        //Aqui termina el codigo de la verificacion
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_MRU_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+
     }
 
     @FXML

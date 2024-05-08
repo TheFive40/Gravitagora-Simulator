@@ -3,17 +3,15 @@ package org.simulador.es.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
-import org.simulador.es.model.MovCircular;
+import util.animations.MovCircular;
 import util.General;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

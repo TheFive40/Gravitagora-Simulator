@@ -1,4 +1,4 @@
-package org.simulador.es.model;
+package util.animations;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.layout.AnchorPane;
@@ -7,6 +7,9 @@ import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.simulador.es.data.LocalStorage.*;
+
 @Setter
 @Getter
 public class MovCircular {
@@ -15,6 +18,7 @@ public class MovCircular {
     private double velocidadTangencial;
     private double aceleracionCentripeta;
     private double aceleracionAngular;
+    private double posicionAngular;
     private int angulo;
     private int tiempo;
     private Circle particula;
@@ -42,7 +46,11 @@ public class MovCircular {
             velocidadTangencial = radio * velocidadAngular;
             aceleracionCentripeta = Math.pow(velocidadTangencial,2)/radio;
             aceleracionAngular = velocidadAngular/tiempo.get();
+            posicionAngular = Math.toRadians(velocidadAngular)*tiempo.get();
 
+            velocidadTiempoMovCircular.put(tiempo.get(),velocidadAngular);
+            aceleracionTiempoMovCircular.put(tiempo.get(),aceleracionAngular);
+            posicionTiempoMovCircular.put(tiempo.get(),posicionAngular);
             //Colocamos la particula en un punto de nuestro eje de coordenadas
             particula.setLayoutX(x);
             particula.setCenterY(y);

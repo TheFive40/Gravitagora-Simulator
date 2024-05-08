@@ -2,9 +2,7 @@ package org.simulador.es.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -13,7 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
 import lombok.Setter;
-import org.simulador.es.model.Mru;
+import util.animations.Mru;
 import util.General;
 
 import java.io.IOException;
@@ -91,13 +89,15 @@ public class MruController implements Initializable {
 
     @FXML
     void reiniciarSimulacion(ActionEvent event) {
-
+        ruedaTrasera.setTranslateX(0.0);
+        vehiculo.setTranslateX(0.0);
+        ruedaDelantera.setTranslateX(4.0);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Inicializacion de objetos
-        mru = new Mru(ruedaTrasera, ruedaDelantera, vehiculo);
+        mru = new Mru(ruedaTrasera, ruedaDelantera, vehiculo, contenedorAnimacion);
 
     }
 }

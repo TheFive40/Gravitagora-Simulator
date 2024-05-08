@@ -1,0 +1,68 @@
+/* Estilo para el VBox principal */
+VBox {
+    -fx-background-color: #f0f0f0; /* Color de fondo */
+    -fx-padding: 20; /* Espacio interno */
+}
+
+/* Estilo para el HBox que contiene la etiqueta y el ChoiceBox */
+HBox {
+    -fx-spacing: 10; /* Espacio entre elementos */
+}
+
+/* Estilo para la tabla */
+TableView {
+    -fx-background-color: #ffffff; /* Color de fondo */
+}
+
+/* Estilo para las columnas de la tabla */
+.table-column {
+    -fx-alignment: CENTER; /* Alineación del contenido al centro */
+}
+
+/* Estilo para el gráfico */
+.chart-line-symbol {
+    -fx-background-color: #ff5722; /* Color del símbolo del gráfico */
+}
+
+/* Estilo para los botones */
+Button {
+    -fx-background-color: #ff5722; /* Color de fondo */
+    -fx-text-fill: white; /* Color del texto */
+    -fx-padding: 10 20; /* Espacio interno */
+    -fx-font-size: 14px; /* Tamaño de fuente */
+}
+
+Button:hover {
+    -fx-background-color: #e64a19; /* Color de fondo al pasar el mouse */
+}
+/* Estilo para los elementos de la barra de menú */
+Menu, MenuItem {
+    -fx-background-color: #ff5722; /* Color de fondo */
+    -fx-text-fill: white; /* Color del texto */
+}
+
+/* Estilo para los elementos de la barra de menú cuando se pasa el mouse sobre ellos */
+Menu:hover, MenuItem:hover {
+    -fx-background-color: #444444; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para el separador */
+Separator {
+    -fx-padding: 10 0; /* Espacio interno */
+}
+
+/* Estilo para la ChoiceBox */
+.choice-box {
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-border-color: #ff5722; /* Color del borde */
+}
+
+/* Estilo para los elementos de la ChoiceBox */
+.choice-box .label {
+    -fx-text-fill: #ff5722; /* Color del texto */
+}
+
+/* Estilo para la etiqueta */
+Label {
+    -fx-font-size: 16px; /* Tamaño de fuente */
+}

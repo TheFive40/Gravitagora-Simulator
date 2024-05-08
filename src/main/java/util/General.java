@@ -3,24 +3,30 @@ package util;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.completion.CompletionResult;
 import com.theokanning.openai.service.OpenAiService;
+import javafx.beans.property.MapProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import org.simulador.es.model.MruModel;
 
 import java.io.IOException;
 
 public class General {
-
     public static String RUTA_MRU = "/view/MruFXML.fxml";
     public static String RUTA_TIRO_PARABOLICO = "/view/TiroParabolicoFXML.fxml";
     public static String RUTA_CAIDA_LIBRE = "/view/MainFXML.fxml";
     public static String RUTA_MOV_CIRCULAR = "/view/MovCircularFXML.fxml";
     public static String RUTA_GPT_4 = "/view/Gpt4FXML.fxml";
+    public static String RUTA_MRU_GRAFICO = "/view/MruGraficoFXML.fxml";
+
+    public static String RUTA_CAIDA_LIBRE_GRAFICO = "/view/CaidaLibreGraficoFXML.fxml";
     public static final String API_URL = "https://api.openai.com/v1/chat/completions";
     public static final String API_KEY = "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";
     private static String MODEL = "gpt-3.5-turbo";
-
+    public static int tiempoAnimacion;
     public static void mostrarMensajeAlerta(String titulo, String cabecera, String contenido,
                                             Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
@@ -66,7 +72,6 @@ public class General {
     }
 
 
-
     private static String getText(String answer) {
         int index = answer.indexOf("`") + 2;
         String textFinal = "";
@@ -76,4 +81,12 @@ public class General {
         return textFinal;
     }
 
+    public static void saltarAlertasMenuItem() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("¡No hay datos en la grafica!");
+        alert.setHeaderText("¡Error al Graficar!");
+        alert.setContentText("Debe iniciar la simulación antes de ir a este item" +
+                "\nPor favor intente mas tarde");
+        alert.show();
+    }
 }
