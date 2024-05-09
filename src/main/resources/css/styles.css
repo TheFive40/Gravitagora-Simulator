@@ -1,0 +1,87 @@
+/* main_style.css */
+
+/* Estilos para la ventana principal */
+#contenedorPrincipal {
+    -fx-background-color: #f0f0f0; /* Color de fondo */
+}
+
+/* Estilos para la sección izquierda con radio buttons */
+.left-section {
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-padding: 10px;
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #cccccc; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes del borde */
+}
+
+/* Estilos para el título de la aplicación */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-background-color: #336699; /* Color de fondo */
+    -fx-background-radius: 5px; /* Radio de los bordes del fondo */
+    -fx-border-width: 2px; /* Ancho del borde */
+    -fx-border-color: #ffffff; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes del borde */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); /* Sombra */
+}
+
+/* Estilos para los botones */
+.button {
+    -fx-background-color: #336699; /* Color de fondo */
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 5px; /* Radio de los bordes */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #ffffff; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes del borde */
+}
+
+.button:hover {
+    -fx-background-color: #265c88; /* Cambio de color al pasar el mouse */
+}
+
+/* Estilos para los menús */
+.menu-bar {
+    -fx-background-color: #4682b4; /* Azul un poco más oscuro */
+}
+
+.menu {
+    -fx-text-fill: #ffffff; /* Color del texto */
+}
+
+.menu-item {
+    -fx-background-color: #336699; /* Color de fondo */
+    -fx-text-fill: black; /* Color del texto */
+    -fx-effect: dropshadow(three-pass-box, white, 1, 1, 0, 0); /* Efecto de sombra */
+}
+.menu-item:hover {
+    -fx-background-color: #265c88; /* Cambio de color al pasar el mouse */
+}
+#contenedorAnimacion {
+    -fx-border-width: 2px; /* Ancho del borde */
+    -fx-border-color: #4682b4; /* Color del borde, usando el mismo tono de azul que el menú */
+    -fx-border-radius: 5px; /* Radio de los bordes */
+    -fx-padding: 10px; /* Espacio interno para que el contenido no esté demasiado pegado al borde */
+}
+/* Estilo para los text fields */
+/* Estilo para los text fields */
+.text-field {
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #4682b4; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes */
+}
+/* Estilo para el ComboBox */
+.combo-box {
+    -fx-pref-width: 150px; /* Ancho preferido */
+    -fx-font-size: 12px; /* Tamaño de fuente */
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #4682b4; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes */
+}
+

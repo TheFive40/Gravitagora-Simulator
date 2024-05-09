@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<AnchorPane fx:id="contenedorPrincipal" prefHeight="523.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MainController">
+<AnchorPane fx:id="contenedorPrincipal" prefHeight="523.0" prefWidth="800.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MainController">
    <children>
       <VBox prefHeight="467.0" prefWidth="800.0">
       
@@ -54,11 +54,11 @@
                         <Circle fx:id="particula" fill="DODGERBLUE" layoutX="217.0" layoutY="14.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="413.0" prefWidth="167.0">
+                  <AnchorPane prefHeight="431.0" prefWidth="161.0">
                      <children>
                   
                           <!-- Parte derecha con textfields -->
-                          <VBox layoutX="2.0" layoutY="42.0" spacing="5">
+                          <VBox layoutX="2.0" layoutY="42.0" spacing="5" style="-fx-background-color: #ffffff;">
                      <children>
                               <ComboBox fx:id="comboGravedades" onAction="#eventoEstablecerGravedad" prefWidth="150.0" />
                               <TextField fx:id="textFieldTiempo" promptText="Tiempo" />
@@ -69,27 +69,35 @@
                         <Label layoutX="20.0" text="Condiciones Iniciales" />
                         <Label layoutX="1.0" layoutY="25.0" text="Caida Libre" />
                         <Label layoutX="1.0" layoutY="137.0" prefHeight="17.0" prefWidth="59.0" text="MRU" />
-                        <VBox layoutX="1.0" layoutY="154.0" spacing="5">
+                        <VBox layoutX="1.0" layoutY="154.0" prefHeight="69.0" prefWidth="150.0" spacing="5">
                            <children>
                               <TextField fx:id="textFieldVelocidadMru" disable="true" promptText="Velocidad" />
                               <TextField fx:id="textFieldTiempoMru" disable="true" layoutX="10.0" layoutY="10.0" promptText="Tiempo" />
                            </children>
                         </VBox>
-                        <Label layoutX="-1.0" layoutY="209.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
-                        <TextField fx:id="textFieldRadio" disable="true" layoutX="1.0" layoutY="226.0" promptText="Radio de trayectoria" />
-                        <TextField fx:id="textFieldVelocidadAngular" disable="true" layoutX="-1.0" layoutY="257.0" promptText="Velocidad Angular" />
-                        <Label alignment="CENTER" layoutX="2.0" layoutY="375.0" prefHeight="17.0" prefWidth="149.0" text="Angulo Inicial" />
-                        <Slider fx:id="sliderAnguloInicial" disable="true" layoutX="1.0" layoutY="392.0" prefHeight="14.0" prefWidth="149.0" />
-                        <Label layoutX="-1.0" layoutY="282.0" prefHeight="17.0" prefWidth="108.0" text="Tiro parabolico" />
-                        <TextField fx:id="textFieldTiempo1" disable="true" layoutX="-1.0" layoutY="307.0" promptText="Masa del Proyectil" />
-                        <TextField fx:id="textFieldTiempo11" disable="true" layoutX="-1.0" layoutY="341.0" promptText="Tiempo" />
+                        <Label layoutX="-1.0" layoutY="215.0" prefHeight="17.0" prefWidth="122.0" text="Movimiento Circular" />
+                        <VBox layoutY="236.0" spacing="4.0">
+                           <children>
+                              <TextField fx:id="textFieldRadio" disable="true" layoutY="236.0" promptText="Radio de trayectoria" />
+                              <TextField fx:id="textFieldVelocidadAngular" disable="true" promptText="Velocidad Angular" />
+                           </children>
+                        </VBox>
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="389.0" prefHeight="17.0" prefWidth="149.0" text="Angulo Inicial" />
+                        <Slider fx:id="sliderAnguloInicial" disable="true" layoutX="-1.0" layoutY="406.0" prefHeight="17.0" prefWidth="149.0" />
+                        <Label layoutX="2.0" layoutY="304.0" prefHeight="17.0" prefWidth="116.0" text="Tiro parabolico" />
+                        <VBox layoutX="1.0" layoutY="321.0" spacing="4.0">
+                           <children>
+                              <TextField fx:id="textFieldTiempo1" disable="true" layoutX="-1.0" layoutY="307.0" prefHeight="32.0" prefWidth="149.0" promptText="Masa del Proyectil" />
+                              <TextField fx:id="textFieldTiempo11" disable="true" prefHeight="32.0" prefWidth="146.0" promptText="Tiempo" />
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
             </children>
              </HBox>
          </children>
       </VBox>
-      <MenuBar layoutX="1.0" layoutY="497.0" prefHeight="25.0" prefWidth="779.0">
+      <MenuBar layoutX="-7.0" layoutY="497.0" prefHeight="35.0" prefWidth="808.0">
          <menus>
             <Menu mnemonicParsing="false" text="Graficos de Movimientos">
               <items>
@@ -106,7 +114,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Informacion de la App">
               <items>
-                <MenuItem fx:id="menuItemDev" mnemonicParsing="false" text="Developers" />
+                <MenuItem fx:id="menuItemDev" mnemonicParsing="false" onAction="#eventoDevelopersMenuItem" text="Developers" />
                   <MenuItem fx:id="menuItemAgradecimientos" mnemonicParsing="false" text="Agradecimientos" />
               </items>
             </Menu>

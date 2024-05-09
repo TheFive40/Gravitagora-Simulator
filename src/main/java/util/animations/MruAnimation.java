@@ -53,7 +53,7 @@ public class MruAnimation {
             ruedaDelantera.setTranslateX(ruedaDelantera.getTranslateX() + getVelocidad());
             //Calculamos el desplazamiento de la particula en un intervalo de seg
             double desplazamiento = getVelocidad() * tiempo.getAndIncrement();
-            textFieldVelocidadObjeto.setText(desplazamiento + " m/s");
+            textFieldVelocidadObjeto.setText(desplazamiento + " m");
             if (vehiculo.getTranslateX() >= (contenedorPrincipal.getHeight() - 50)) {
                 ruedaTrasera.setTranslateX(0.0);
                 vehiculo.setTranslateX(0.0);

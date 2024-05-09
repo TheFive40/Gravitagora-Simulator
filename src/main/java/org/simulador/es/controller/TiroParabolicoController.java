@@ -4,12 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import org.simulador.es.data.LocalStorage;
 import util.General;
 import util.animations.TiroParabolicoAnimation;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,16 +59,33 @@ public class TiroParabolicoController implements Initializable {
     private Circle proyectil;
     @FXML
     private Slider sliderAnguloInicial;
+    @FXML
+    private TextField textFieldVelocidadObjetoX;
+    @FXML
+    private TextField textFieldVelocidadObjetoY;
     private TiroParabolicoAnimation tiroParabolicoAnimation;
+
 
 
     public void iniciarSimulacion(ActionEvent event) {
         tiroParabolicoAnimation.setMasa(Double.parseDouble(textFieldMasaProyectil.getText()));
         tiroParabolicoAnimation.setVelocidadInicial(Double.parseDouble(textFieldVelocidadProyectil.getText()));
         tiroParabolicoAnimation.setAngulo(sliderAnguloInicial.getValue());
+        tiroParabolicoAnimation.setTextFieldVelocidadX(textFieldVelocidadObjetoX);
+        tiroParabolicoAnimation.setTextFieldVelocidadY(textFieldVelocidadObjetoY);
         tiroParabolicoAnimation.establecerAnimacion();
     }
-
+    @FXML
+    void eventoDevelopersMenuItem(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.DEVELOPERS_RUTA);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/Desarrolladores.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("Desarrolladores");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void eventoMovCircularRadioButton(ActionEvent event) {
         General.agregarContenedorPadre(General.RUTA_MOV_CIRCULAR, contenedorPrincipal);
     }
@@ -86,7 +108,89 @@ public class TiroParabolicoController implements Initializable {
                         " la animacion anterior han sido eliminado exitosamente ", Alert.AlertType.INFORMATION);
     }
 
+    @FXML
+    void eventoGraficarCaidaLibre(ActionEvent event) throws IOException {
+        if (LocalStorage.velocidadTiempoCaidaLibre != null && LocalStorage.velocidadTiempoCaidaLibre.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.velocidadTiempoCaidaLibre == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_CAIDA_LIBRE_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
 
+    @FXML
+    void eventoGraficarMru(ActionEvent event) throws IOException {
+        //Este codigo verifica posibles errores antes de iniciar a graficar
+        if (LocalStorage.velocidadTiempoMru != null && LocalStorage.velocidadTiempoMru.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.velocidadTiempoMru == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        //Aqui termina el codigo de la verificacion
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_MRU_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+    @FXML
+    void eventoGraficarMovCircular (ActionEvent event) throws IOException {
+        //Este codigo verifica posibles errores antes de iniciar a graficar
+        if (LocalStorage.velocidadTiempoMovCircular != null && LocalStorage.velocidadTiempoMovCircular.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.velocidadTiempoMovCircular == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        //Aqui termina el codigo de la verificacion
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_MOV_CIRCULAR_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void eventoGraficarTiroParabolico(ActionEvent event) throws IOException {
+        //Este codigo verifica posibles errores antes de iniciar a graficar
+        if (LocalStorage.xVelocidadTiempoTiroParabolico != null && LocalStorage.yVelocidadTiempoTiroParabolico.isEmpty()) {
+            General.saltarAlertasMenuItem();
+            return;
+        } else if (LocalStorage.xVelocidadTiempoTiroParabolico == null) {
+            General.saltarAlertasMenuItem();
+            return;
+        }
+        //Aqui termina el codigo de la verificacion
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_TIRO_PARABOLICO_GRAFICO);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/EstiloGraficos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void eventoGpt4MenuItem(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_GPT_4);
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setTitle("Asistente Virtual");
+        scene.getStylesheets().add(getClass().getResource("/css/EstilosAsistenteVirtual.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tiroParabolicoRadioButton.setSelected(true);

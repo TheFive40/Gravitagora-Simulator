@@ -24,6 +24,7 @@ public class General {
     public static String RUTA_MOV_CIRCULAR_GRAFICO = "/view/MovCircularGraficoFXML.fxml";
     public static String RUTA_CAIDA_LIBRE_GRAFICO = "/view/CaidaLibreGraficoFXML.fxml";
     public static String RUTA_TIRO_PARABOLICO_GRAFICO = "/view/TiroParabolicoGraficoFXML.fxml";
+    public static String DEVELOPERS_RUTA = "/view/DesarrolladoresFXML.fxml";
     public static final String API_URL = "https://api.openai.com/v1/chat/completions";
     public static final String API_KEY = "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";
     private static String MODEL = "gpt-3.5-turbo";

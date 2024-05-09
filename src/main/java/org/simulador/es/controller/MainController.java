@@ -162,7 +162,17 @@ public class MainController implements Initializable {
     void eventoTiroParabolicoRadioButton(ActionEvent event) {
         General.agregarContenedorPadre(General.RUTA_TIRO_PARABOLICO, contenedorPrincipal);
     }
-
+    @FXML
+    void eventoDevelopersMenuItem(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.DEVELOPERS_RUTA);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/Desarrolladores.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("Desarrolladores");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     void eventoGraficarCaidaLibre(ActionEvent event) throws IOException {
         if (LocalStorage.velocidadTiempoCaidaLibre != null && LocalStorage.velocidadTiempoCaidaLibre.isEmpty()) {
