@@ -35,7 +35,8 @@
                   </VBox>
                   <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black;">
                      <children>
-                        <Circle fx:id="particula" fill="DODGERBLUE" layoutX="214.0" layoutY="180.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="particula" fill="DODGERBLUE" layoutX="213.0" layoutY="159.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" layoutX="213.0" layoutY="215.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="396.0" prefWidth="151.0">

@@ -1,12 +1,10 @@
 package org.simulador.es.controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import util.animations.MovCircularAnimation;
@@ -14,6 +12,8 @@ import util.General;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static org.simulador.es.data.LocalStorage.*;
 
 public class MovCircularController implements Initializable {
 
@@ -63,12 +63,18 @@ public class MovCircularController implements Initializable {
 
     private MovCircularAnimation movCircular;
 
-
-
+    @FXML
     public void reiniciarSimulacion(ActionEvent event) {
 
+        velocidadTiempoMovCircular.set(FXCollections.observableHashMap());
+        aceleracionTiempoMovCircular.set(FXCollections.observableHashMap());
+        posicionTiempoMovCircular.set(FXCollections.observableHashMap());
+        General.mostrarMensajeAlerta("Datos limpiados",
+                "La animación ha sido reestablecida", "Los datos anteriores de" +
+                        " la animacion anterior han sido eliminado exitosamente ", Alert.AlertType.INFORMATION);
     }
 
+    @FXML
     public void iniciarSimulacion(ActionEvent event) {
         double frecuenciaAngular = Double.parseDouble(textFieldVelocidadAngular.getText());
         movCircular.setTiempo(Integer.parseInt(textFieldMovCircular.getText()));
@@ -81,16 +87,19 @@ public class MovCircularController implements Initializable {
         General.agregarContenedorPadre(General.RUTA_TIRO_PARABOLICO, contenedorPrincipal);
 
     }
-    public void eventoMruRadioButton(ActionEvent event){
+
+    public void eventoMruRadioButton(ActionEvent event) {
         General.agregarContenedorPadre(General.RUTA_MRU, contenedorPrincipal);
 
     }
-    public void eventoCaidaLibreRadioButton(ActionEvent event){
+
+    public void eventoCaidaLibreRadioButton(ActionEvent event) {
         General.agregarContenedorPadre(General.RUTA_CAIDA_LIBRE, contenedorPrincipal);
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        movCircular = new MovCircularAnimation(particula,contenedorAnimacion);
+        movCircular = new MovCircularAnimation(particula, contenedorAnimacion);
         movCircularRadioButton.setSelected(true);
     }
 }

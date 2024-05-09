@@ -53,15 +53,15 @@ public class GraficoTiroParabolicoController implements Initializable {
                     llenarGraficoTiroParabolico(yVelocidadTiempoTiroParabolico);
 
                 }
-                case "Posición vs Tiempo" -> {
-                    tableColumnVelocidad.setText("Posición");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Posición");
-                    llenarGraficoTiroParabolico(posicionTiempoMovCircular);
+                case "Aceleración X vs Tiempo" -> {
+                    tableColumnVelocidad.setText("Aceleracion X");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleracion X");
+                    llenarGraficoTiroParabolico(xAceleracionTiempoTiroParabolico);
                 }
-                case "Aceleración vs Tiempo" -> {
-                    tableColumnVelocidad.setText("Aceleración");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración");
-                    llenarGraficoTiroParabolico(aceleracionTiempoMovCircular);
+                case "Aceleración Y vs Tiempo" -> {
+                    tableColumnVelocidad.setText("Aceleración Y");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración Y");
+                    llenarGraficoTiroParabolico(yAceleracionTiempoTiroParabolico);
                 }
                 default -> throw new IllegalArgumentException();
             }

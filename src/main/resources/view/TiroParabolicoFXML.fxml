@@ -8,11 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="contenedorPrincipal" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.TiroParabolicoController">
+<AnchorPane fx:id="contenedorPrincipal" prefHeight="467.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.TiroParabolicoController">
    <children>
-      <VBox prefHeight="467.0" prefWidth="779.0">
+      <VBox prefHeight="467.0" prefWidth="800.0">
          <children>
-            <HBox prefHeight="413.0" prefWidth="631.0" spacing="10">
+            <HBox prefHeight="415.0" prefWidth="784.0" spacing="10">
                <children>
                   <VBox prefHeight="409.0" prefWidth="153.0" spacing="5">
                      <children>
@@ -21,9 +21,9 @@
                         <RadioButton fx:id="mruRadioButton" onAction="#eventoMruRadioButton" prefHeight="17.0" prefWidth="123.0" text="MRU" />
                         <RadioButton fx:id="movCircularRadioButton" onAction="#eventoMovCircularRadioButton" prefHeight="17.0" prefWidth="144.0" text="Movimiento Circular" />
                         <RadioButton fx:id="tiroParabolicoRadioButton" text="Tiro Parabólico" />
-                        <Button alignment="CENTER" onAction="#iniciarSimulacion" text="Iniciar Simulación">
+                        <Button alignment="CENTER" onAction="#iniciarSimulacion" prefHeight="25.0" prefWidth="139.0" text="Iniciar Simulación">
                            <VBox.margin>
-                              <Insets left="10.0" top="90.0" />
+                              <Insets top="90.0" />
                            </VBox.margin>
                         </Button>
                         <Button alignment="CENTER" onAction="#reiniciarSimulacion" prefHeight="25.0" prefWidth="139.0" text="Reiniciar Simulacion">
@@ -31,18 +31,27 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
+                        <AnchorPane prefHeight="153.0" prefWidth="157.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="-1.0" layoutY="6.0" prefHeight="17.0" prefWidth="144.0" text="Informacion del Mov" textAlignment="CENTER" />
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="17.0" prefWidth="123.0" text="Velocidad en x" />
+                              <TextField fx:id="textFieldVelocidadObjeto" editable="false" layoutX="13.0" layoutY="64.0" prefHeight="25.0" prefWidth="123.0" />
+                              <TextField fx:id="textFieldVelocidadObjeto1" editable="false" layoutX="13.0" layoutY="114.0" prefHeight="25.0" prefWidth="123.0" />
+                              <Label alignment="CENTER" layoutX="13.0" layoutY="93.0" prefHeight="17.0" prefWidth="123.0" text="Velocidad en y" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </VBox>
                   <ScrollPane prefViewportHeight="415.0" prefViewportWidth="428.0">
                      <content>
-                        <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black;">
+                        <AnchorPane fx:id="contenedorAnimacion" prefHeight="437.0" prefWidth="427.0" style="-fx-border-color: black;">
                            <children>
                               <Circle fx:id="proyectil" fill="DODGERBLUE" layoutX="26.0" layoutY="248.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </AnchorPane>
                      </content>
                   </ScrollPane>
-                  <AnchorPane prefHeight="422.0" prefWidth="151.0">
+                  <AnchorPane prefHeight="415.0" prefWidth="180.0">
                      <children>
                         <VBox layoutX="1.0" layoutY="42.0" prefHeight="63.0" prefWidth="150.0" spacing="5">
                            <children>
@@ -67,10 +76,10 @@
                         <TextField fx:id="textFieldRadio" disable="true" layoutX="1.0" layoutY="238.0" promptText="Radio de trayectoria" />
                         <TextField fx:id="textFieldVelocidadAngular" disable="true" layoutX="1.0" layoutY="270.0" promptText="Frecuencia Angular" />
                         <Label layoutX="6.0" layoutY="295.0" prefHeight="17.0" prefWidth="108.0" text="Tiro parabolico" />
-                        <TextField fx:id="textFieldMasaProyectil" layoutX="2.0" layoutY="321.0" promptText="Masa del proyectil" />
-                        <TextField fx:id="textFieldVelocidadProyectil" layoutX="1.0" layoutY="354.0" promptText="Velocidad Inicial" />
-                        <Slider layoutY="399.0" prefHeight="14.0" prefWidth="151.0" />
-                        <Label alignment="CENTER" layoutX="6.0" layoutY="379.0" prefHeight="17.0" prefWidth="139.0" text="Angulo inicial" />
+                        <TextField fx:id="textFieldMasaProyectil" layoutX="2.0" layoutY="312.0" promptText="Masa del proyectil" />
+                        <TextField fx:id="textFieldVelocidadProyectil" layoutX="2.0" layoutY="343.0" promptText="Velocidad Inicial" />
+                        <Slider fx:id="sliderAnguloInicial" layoutY="399.0" prefHeight="14.0" prefWidth="173.0" showTickLabels="true" showTickMarks="true" />
+                        <Label alignment="CENTER" layoutX="7.0" layoutY="368.0" prefHeight="17.0" prefWidth="139.0" text="Angulo inicial" />
                      </children>
                      <padding>
                         <Insets bottom="2.0" />

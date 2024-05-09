@@ -50,6 +50,7 @@ public class CaidaLibreAnimation {
         particula.setLayoutY(particula.getRadius());
         particula.setLayoutX(contenedorPrincipal.getWidth() / 2);
         AtomicInteger tiempo = new AtomicInteger();
+        AtomicInteger tiempoContador = new AtomicInteger();
         AtomicLong tiempoAnterior = new AtomicLong(System.currentTimeMillis());
         timeline = new Timeline(new KeyFrame(Duration.millis(50), e -> {
             //Incrementamos el tiempo cada vez que se invoque la linea de tiempo
@@ -58,10 +59,16 @@ public class CaidaLibreAnimation {
             double velocidad = calcularVelocidad(tiempo.get());
             //Actualizamos en los TextFields la Velocidad y el tiempo, en real
             textFieldVelocidadObjeto.setText(velocidad + " m/s²");
-            textFieldTiempoObjeto.setText(tiempo.get() + "s");
+
+            long tiempoActual = System.currentTimeMillis();
+            if(tiempoActual - tiempoAnterior.get() >= 1000){
+                tiempoAnterior.set(tiempoActual);
+                tiempoContador.getAndIncrement();
+                textFieldTiempoObjeto.setText(tiempoContador.get() + "s");
+
+            }
             //Calculamos el nuevo desplazamiento de la particula
             double desplazamientoAnimacion = particula.getTranslateY() + velocidad;
-
             double desplazamiento = getVelocidadInicial() *tiempo.get() +
             (double) 1 /2 * getGravedad()*Math.pow(tiempo.get(),2);
             //Establecemos el desplazamiento de la particula en el eje Y

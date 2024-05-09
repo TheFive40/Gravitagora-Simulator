@@ -19,7 +19,7 @@ public class General {
     public static String RUTA_TIRO_PARABOLICO = "/view/TiroParabolicoFXML.fxml";
     public static String RUTA_CAIDA_LIBRE = "/view/MainFXML.fxml";
     public static String RUTA_MOV_CIRCULAR = "/view/MovCircularFXML.fxml";
-    public static String RUTA_GPT_4 = "/view/Gpt4FXML.fxml";
+    public static String RUTA_GPT_4 = "/view/AsistenteVirtualFXML.fxml";
     public static String RUTA_MRU_GRAFICO = "/view/MruGraficoFXML.fxml";
     public static String RUTA_MOV_CIRCULAR_GRAFICO = "/view/MovCircularGraficoFXML.fxml";
     public static String RUTA_CAIDA_LIBRE_GRAFICO = "/view/CaidaLibreGraficoFXML.fxml";

@@ -30,8 +30,9 @@
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="Velocidad en X vs Tiempo" />
                           <String fx:value="Velocidad en Y vs Tiempo" />
-                          <String fx:value="Posición vs Tiempo" />
-                          <String fx:value="Aceleración vs Tiempo" />
+                          <String fx:value="Aceleración X vs Tiempo" />
+                          <String fx:value="Aceleración Y vs Tiempo" />
+
                           <!-- Agrega más opciones según sea necesario -->
                       </FXCollections>
                   </items>

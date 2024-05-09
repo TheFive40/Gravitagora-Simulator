@@ -18,5 +18,7 @@ public class LocalStorage {
 
     public static MapProperty<Integer,Double> xVelocidadTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
     public static MapProperty<Integer,Double> yVelocidadTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
+    public static MapProperty<Integer,Double> xAceleracionTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
+    public static MapProperty<Integer,Double> yAceleracionTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
 
 }

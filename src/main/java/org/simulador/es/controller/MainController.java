@@ -240,7 +240,10 @@ public class MainController implements Initializable {
     void eventoGpt4MenuItem(ActionEvent event) throws IOException {
         Parent parent = General.obtenerContenedorPadre(General.RUTA_GPT_4);
         Stage stage = new Stage();
-        stage.setScene(new Scene(parent));
+        Scene scene = new Scene(parent);
+        stage.setTitle("Asistente Virtual");
+        scene.getStylesheets().add(getClass().getResource("/css/EstilosAsistenteVirtual.css").toExternalForm());
+        stage.setScene(scene);
         stage.show();
     }
 

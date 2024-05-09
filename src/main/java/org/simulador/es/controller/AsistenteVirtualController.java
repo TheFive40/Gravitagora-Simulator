@@ -24,7 +24,7 @@ public class AsistenteVirtualController implements Initializable {
     @FXML
     void eventoEnviarMensajeButton(ActionEvent event) {
         String respuesta = General.askChatGPT(textFieldMensaje.getText());
-        textAreaRespuesta.appendText("GPT-4 \n");
+        textAreaRespuesta.appendText("Richard Door AI \n");
         textAreaRespuesta.appendText(respuesta + "\n");
         textAreaRespuesta.appendText("\n \n");
     }
