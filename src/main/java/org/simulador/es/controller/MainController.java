@@ -6,6 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,7 +42,7 @@ public class MainController implements Initializable {
     private RadioButton caidaLibreRadioButton;
 
     @FXML
-    private TextField textFieldTiempo;
+    private TextField textFieldAltura;
 
     @FXML
     private TextField textFieldTiempoObjeto;
@@ -91,12 +94,13 @@ public class MainController implements Initializable {
     @FXML
     private Slider sliderAnguloInicial;
 
-    private CaidaLibreAnimation caidaLibre;
-
+    private static CaidaLibreAnimation caidaLibre;
+    private static String item = "Tierra";
     @FXML
     public void iniciarSimulacion(ActionEvent event) {
         particula.setVisible(true);
-        caidaLibre.setTiempo(Integer.parseInt(textFieldTiempo.getText()));
+        //caidaLibre.setTiempo(Integer.parseInt(textFieldTiempo.getText()));
+        caidaLibre.setAlturaInicial ( Double.parseDouble ( textFieldAltura.getText () ) );
         caidaLibre.setVelocidadInicial(Double.parseDouble(textFieldVelocidadInicial.getText()));
         caidaLibre.setTextFieldTiempoObjeto(textFieldTiempoObjeto);
         caidaLibre.setTextFieldVelocidadObjeto(textFieldVelocidadObjeto);
@@ -114,28 +118,29 @@ public class MainController implements Initializable {
     @FXML
     public void eventoEstablecerGravedad(ActionEvent event) {
         String gravedades = comboGravedades.getSelectionModel().getSelectedItem();
+        item = gravedades;
         switch (gravedades) {
             case "Tierra" -> {
-                caidaLibre.setGravedad(Gravedad.TIERRA);
+                General.agregarContenedorPadre ( General.RUTA_CAIDA_LIBRE,contenedorPrincipal );
                 caidaLibre.setGravedad(Gravedad.TIERRA);
             }
             case "Luna" -> {
-                caidaLibre.setGravedad(Gravedad.LUNA);
+                General.agregarContenedorPadre ( General.RUTA_LUNA_GRAVEDAD,contenedorPrincipal );
                 caidaLibre.setGravedad(Gravedad.LUNA);
 
             }
             case "Marte" -> {
-                caidaLibre.setGravedad(Gravedad.MARTE);
+                General.agregarContenedorPadre ( General.RUTA_MARTE_GRAVEDAD,contenedorPrincipal );
                 caidaLibre.setGravedad(Gravedad.MARTE);
 
             }
             case "Jupiter" -> {
-                caidaLibre.setGravedad(Gravedad.JUPITER);
+                General.agregarContenedorPadre ( General.RUTA_JUPITER_GRAVEDAD, contenedorPrincipal );
                 caidaLibre.setGravedad(Gravedad.JUPITER);
 
             }
             case "Saturno" -> {
-                caidaLibre.setGravedad(Gravedad.SATURNO);
+                General.agregarContenedorPadre ( General.RUTA_SATURNO_GRAVEDAD,contenedorPrincipal );
                 caidaLibre.setGravedad(Gravedad.SATURNO);
 
             }
@@ -147,7 +152,18 @@ public class MainController implements Initializable {
             }
         }
     }
-
+    @FXML
+    public void eventoAlturaInicialTextField( KeyEvent event ){
+        if(event.getCode () == KeyCode.ENTER){
+            double alturaInicial = Double.parseDouble ( textFieldAltura.getText () );
+            Circle particula1 = (Circle) particula;
+            if(alturaInicial < particula1.getRadius ()){
+                particula1.setLayoutY ( particula1.getRadius () );
+            }else{
+                particula1.setLayoutY(alturaInicial);
+            }
+        }
+    }
     @FXML
     public void eventoRadioButtonMru(ActionEvent event) {
         General.agregarContenedorPadre(General.RUTA_MRU, contenedorPrincipal);
@@ -259,6 +275,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        comboGravedades.getSelectionModel ().select ( item );
         //Inicializacion de objetos
         caidaLibre = new CaidaLibreAnimation(particula, contenedorAnimacion);
         //Setteo de Atributos a los Objetos previamente Definidos

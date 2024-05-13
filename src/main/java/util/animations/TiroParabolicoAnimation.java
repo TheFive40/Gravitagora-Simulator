@@ -54,8 +54,6 @@ public class TiroParabolicoAnimation {
             LocalStorage.yVelocidadTiempoTiroParabolico.put(tiempo.get(), yVelocidad);
             LocalStorage.xAceleracionTiempoTiroParabolico.put(tiempo.get(), xAcceleration);
             LocalStorage.yAceleracionTiempoTiroParabolico.put(tiempo.get(), yAcceleration);
-            //double xAcceleration =   xVelocidad * getMasa();
-            //double yAcceleration = GRAVEDAD  * yVelocidad * getMasa();
             xVelocidad += xAcceleration * tiempo.get() / 100;
             yVelocidad += yAcceleration * tiempo.get() / 100;
             xPosicion += xVelocidad * tiempo.get() / 100;

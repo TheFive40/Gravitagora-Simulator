@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -33,10 +35,53 @@
                         </Button>
                      </children>
                   </VBox>
-                  <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black;">
+                  <AnchorPane fx:id="contenedorAnimacion" prefHeight="413.0" prefWidth="440.0" style="-fx-border-color: black; -fx-background-color: #120120;">
                      <children>
-                        <Circle fx:id="particula" fill="DODGERBLUE" layoutX="213.0" layoutY="159.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="particula" layoutX="213.0" layoutY="153.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
+                           <fill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="#26c799ec" />
+                                    <Stop color="#26c742f2" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </fill></Circle>
                         <Circle fill="DODGERBLUE" layoutX="213.0" layoutY="215.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                        <ImageView fitHeight="70.0" fitWidth="73.0" layoutX="177.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/R.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="29.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/image-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="98.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/image-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="372.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/image-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="342.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/image-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="14.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/image-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="262.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/image-removebg-preview.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="396.0" prefWidth="151.0">
@@ -61,7 +106,7 @@
                         <VBox layoutX="2.0" layoutY="221.0" spacing="3.0">
                            <children>
                               <TextField fx:id="textFieldRadio" layoutX="2.0" layoutY="215.0" promptText="Radio de trayectoria" />
-                              <TextField fx:id="textFieldVelocidadAngular" promptText="Velocidad Angular" />
+                              <TextField fx:id="textFieldVelocidadAngular" promptText="Frecuencia Angular" />
                               <TextField fx:id="textFieldMovCircular" promptText="Tiempo" />
                            </children>
                         </VBox>

@@ -65,7 +65,6 @@
     -fx-border-width: 2px; /* Ancho del borde */
     -fx-border-color: #4682b4; /* Color del borde, usando el mismo tono de azul que el menú */
     -fx-border-radius: 5px; /* Radio de los bordes */
-    -fx-padding: 10px; /* Espacio interno para que el contenido no esté demasiado pegado al borde */
 }
 /* Estilo para los text fields */
 /* Estilo para los text fields */

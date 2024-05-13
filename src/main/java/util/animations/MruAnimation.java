@@ -3,6 +3,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
@@ -20,7 +21,6 @@ import static org.simulador.es.data.LocalStorage.*;
 @Setter
 public class MruAnimation {
 
-
     private Circle ruedaTrasera;
 
     private Circle ruedaDelantera;
@@ -29,11 +29,10 @@ public class MruAnimation {
 
     private Timeline timeLine;
 
-    private Integer tiempo;
-
     private Double velocidad;
 
     private TextField textFieldVelocidadObjeto;
+    private TextField textFieldTiempo;
 
     private AnchorPane contenedorPrincipal;
 
@@ -46,32 +45,38 @@ public class MruAnimation {
     }
 
     public void establecerAnimacion() {
-        AtomicInteger tiempo = new AtomicInteger();
-        timeLine = new Timeline(new KeyFrame(Duration.millis(16), e -> {
-            ruedaTrasera.setTranslateX(ruedaTrasera.getTranslateX() + getVelocidad());
-            vehiculo.setTranslateX(vehiculo.getTranslateX() + getVelocidad());
-            ruedaDelantera.setTranslateX(ruedaDelantera.getTranslateX() + getVelocidad());
-            //Calculamos el desplazamiento de la particula en un intervalo de seg
-            double desplazamiento = getVelocidad() * tiempo.getAndIncrement();
-            textFieldVelocidadObjeto.setText(desplazamiento + " m");
-            if (vehiculo.getTranslateX() >= (contenedorPrincipal.getHeight() - 50)) {
-                ruedaTrasera.setTranslateX(0.0);
-                vehiculo.setTranslateX(0.0);
-                ruedaDelantera.setTranslateX(4.0);
-            }
-            //Guardamos en el LocalStorage
-            desplazamientoTiempoMru.put(tiempo.get(),desplazamiento);
-            velocidadTiempoMru.put(tiempo.get(),velocidad);
-            if ((velocidad >= 0 && vehiculo.getTranslateX() >= (contenedorPrincipal.getWidth() - 50)) ||
-                    (velocidad < 0 && vehiculo.getTranslateX() <= 0)) {
-                ruedaDelantera.setTranslateX(350);
+        if(getVelocidad ()<=50) {
+            AtomicInteger tiempo = new AtomicInteger ( );
+            timeLine = new Timeline ( new KeyFrame ( Duration.millis ( 16 ), e -> {
+                ruedaTrasera.setTranslateX ( ruedaTrasera.getTranslateX ( ) + getVelocidad ( ) );
+                vehiculo.setTranslateX ( vehiculo.getTranslateX ( ) + getVelocidad ( ) );
+                ruedaDelantera.setTranslateX ( ruedaDelantera.getTranslateX ( ) + getVelocidad ( ) );
+                //Calculamos el desplazamiento de la particula en un intervalo de seg
+                double desplazamiento = getVelocidad ( ) * tiempo.getAndIncrement ( );
+                textFieldVelocidadObjeto.setText ( desplazamiento + " m" );
+                //Guardamos en el LocalStorage
+                desplazamientoTiempoMru.put ( tiempo.get ( ), desplazamiento );
+                velocidadTiempoMru.put ( tiempo.get ( ), velocidad );
+                if ((velocidad >= 0 && vehiculo.getTranslateX ( ) >= (contenedorPrincipal.getWidth ( ) - 100)) ||
+                        (velocidad < 0 && vehiculo.getTranslateX ( ) <= 0)) {
+                /*ruedaDelantera.setTranslateX(350);
                 ruedaTrasera.setTranslateX(346);
-                vehiculo.setTranslateX(346);
-            }
-        }));
-        General.tiempoAnimacion = getTiempo();
-        timeLine.setCycleCount(getTiempo() * 1000 / 16);
-        timeLine.play();
+                vehiculo.setTranslateX(346);*/
+                    General.tiempoAnimacion = tiempo.get ( );
+                    textFieldTiempo.setText ( tiempo.get ( ) + " s" );
+                    timeLine.stop ( );
 
+                }
+            } ) );
+            //General.tiempoAnimacion = getTiempo();
+            timeLine.setCycleCount ( Timeline.INDEFINITE );
+            timeLine.play ( );
+        }else{
+            General.mostrarMensajeAlerta ( "Condiciones Iniciales ",
+                    "¡Haz excedido el limite permitido!",
+                    "¡Por favor asegurate de dar valores realistas \n" +
+                            "Para una mejor experiencia del simulador!",
+                    Alert.AlertType.WARNING);
+        }
     }
 }

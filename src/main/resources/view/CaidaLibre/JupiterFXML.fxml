@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<AnchorPane fx:id="contenedorPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="523.0" prefWidth="800.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MainController">
+<AnchorPane fx:id="contenedorPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="523.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.MainController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="467.0" prefWidth="800.0">
       
@@ -50,98 +51,71 @@
                         </AnchorPane>
                        </children>
                     </VBox>
-                  <AnchorPane fx:id="contenedorAnimacion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="413.0" prefWidth="440.0" snapToPixel="false" style="-fx-border-color: black; -fx-background-color: B6FFFE;">
+                  <AnchorPane fx:id="contenedorAnimacion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="427.0" prefWidth="431.0" snapToPixel="false" style="-fx-border-color: black; -fx-background-color: #E4C0AC;">
                      <children>
-                        <ImageView fitHeight="187.0" fitWidth="202.0" layoutX="14.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="242.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/b54e77add287f2a8f3d46e04acf1d931-removebg-preview.png" />
+                              <Image url="@../../images/saturno.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="170.0" fitWidth="251.0" layoutX="184.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="167.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/D_NQ_NP_887725-MLM44929492403_022021-O-removebg-preview.png" />
+                              <Image url="@../../images/saturno.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="174.0" layoutX="6.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="129.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/42ce6abb62178d7d4a147146b9b545b4.jpg" />
+                              <Image url="@../../images/saturno.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="101.0" layoutX="348.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/42ce6abb62178d7d4a147146b9b545b4.jpg" />
+                              <Image url="@../../images/saturno.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="95.0" layoutX="247.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/42ce6abb62178d7d4a147146b9b545b4.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="174.0" layoutX="87.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/42ce6abb62178d7d4a147146b9b545b4.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="174.0" layoutX="166.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/42ce6abb62178d7d4a147146b9b545b4.jpg" />
-                           </image>
-                        </ImageView>
+                        <Circle fill="WHITE" layoutX="217.0" layoutY="102.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fx:id="particula" fill="#ff1f1f" layoutX="217.0" layoutY="14.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="69.0" fitWidth="67.0" layoutX="348.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="91.0" fitWidth="116.0" layoutX="332.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/Sun-PNG-Transparent-Image.png" />
+                              <Image url="@../../images/SaturnoPlaneta-removebg-preview.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="82.0" fitWidth="80.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="110.0" layoutX="5.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
+                              <Image url="@../../images/R.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="113.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                        <Circle fill="WHITE" layoutX="14.0" layoutY="162.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="165.0" layoutY="60.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="107.0" layoutY="36.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="318.0" layoutY="60.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="255.0" layoutY="68.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="295.0" layoutY="114.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="78.0" layoutY="140.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="34.0" layoutY="25.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="125.0" layoutY="106.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="114.0" layoutY="72.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="381.0" layoutY="110.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="360.0" layoutY="140.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="275.0" layoutY="36.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="165.0" layoutY="102.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="145.0" layoutY="32.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="334.0" layoutY="28.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="413.0" layoutY="122.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="82.0" layoutY="21.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="WHITE" layoutX="26.0" layoutY="132.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
+                        <ImageView fitHeight="150.0" fitWidth="116.0" layoutX="10.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="268.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="348.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="101.0" layoutX="328.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/42ce6abb62178d7d4a147146b9b545b4.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="123.0" fitWidth="80.0" layoutX="348.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="71.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="129.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="283.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/nubes-removebg-preview.png" />
+                              <Image url="@../../images/nave-espacial-de-dibujos-animados-aislado-sobre-fondo-blanco_43633-869-removebg-preview.png" />
                            </image>
                         </ImageView>
                      </children>
                      <effect>
-                        <DropShadow />
+                        <Lighting bumpInput="$null" diffuseConstant="1.4" specularConstant="0.83" surfaceScale="4.41">
+                           <light>
+                              <Light.Distant color="#b2b2b2" />
+                           </light>
+                        </Lighting>
                      </effect>
                   </AnchorPane>
                   <AnchorPane prefHeight="431.0" prefWidth="161.0">
@@ -216,6 +190,9 @@
             <Insets left="200.0" />
          </padding>
       </MenuBar>
-      <Label layoutX="173.0" layoutY="455.0" prefHeight="35.0" prefWidth="433.0" text="Limite de velocidad para una altura entre 0 y 200 (45), y para valores superiores a 200 (25)" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="173.0" layoutY="455.0" prefHeight="35.0" prefWidth="452.0" text="Limite de velocidad para una altura entre 0 y 200 (45), y para valores superiores a 200 (25)" textAlignment="CENTER" wrapText="true" />
    </children>
+   <stylesheets>
+      <URL value="@../../css/styles.css" />
+   </stylesheets>
 </AnchorPane>

@@ -2,6 +2,7 @@ package util.animations;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
@@ -33,6 +34,14 @@ public class MovCircularAnimation {
     }
 
     public void establecerAnimacion(double frecuenciaAngular) {
+        if(radio>170 || radio < -170){
+            General.mostrarMensajeAlerta ( "Condiciones Iniciales ",
+                    "¡Haz excedido el limite permitido!",
+                    "¡Por favor asegurate de dar valores realistas \n" +
+                            "Para una mejor experiencia del simulador!",
+                    Alert.AlertType.WARNING);
+            return;
+        }
         AtomicInteger tiempo = new AtomicInteger();
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(16), e -> {
 

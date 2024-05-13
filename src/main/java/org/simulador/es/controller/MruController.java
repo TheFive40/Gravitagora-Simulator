@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -85,7 +86,14 @@ public class MruController implements Initializable {
     }
     @FXML
     void iniciarSimulacion(ActionEvent event) {
-        mru.setTiempo(Integer.parseInt(textFieldTiempoMru.getText()));
+        if(Double.parseDouble ( textFieldVelocidadMru.getText () )>70) {
+            General.mostrarMensajeAlerta ( "Has excedido el limite",
+                    "¡No puedes colocar valores muy grandes!", "Has excedido el limite" +
+                            " de velocidad permitido \nde la animación por favor intenta con" +
+                            "\n valores mas pequeños y realistas", Alert.AlertType.WARNING );
+            return;
+        }
+        mru.setTextFieldTiempo ( textFieldTiempoMru );
         mru.setVelocidad(Double.parseDouble(textFieldVelocidadMru.getText()));
         mru.setTextFieldVelocidadObjeto(textFieldVelocidadObjeto);
         mru.establecerAnimacion();
