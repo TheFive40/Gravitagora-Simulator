@@ -25,6 +25,7 @@ public class AsistenteVirtualController implements Initializable {
         textAreaRespuesta.appendText ( "Richard Door AI \n" );
         textAreaRespuesta.appendText ( respuesta + "\n" );
         textAreaRespuesta.appendText ( "\n \n" );
+        General.conversacion = textAreaRespuesta.getText ();
 
     }
 

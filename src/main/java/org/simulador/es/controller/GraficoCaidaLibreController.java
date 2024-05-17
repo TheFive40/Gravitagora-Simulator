@@ -1,7 +1,6 @@
 package org.simulador.es.controller;
 
 import javafx.beans.property.MapProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -11,11 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.simulador.es.dao.CaidaLibreDAO;
 import org.simulador.es.data.LocalStorage;
+import org.simulador.es.data.RegresionLineal;
 import org.simulador.es.model.CaidaLibreModel;
-import org.simulador.es.model.MruModel;
 import util.General;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static org.simulador.es.data.LocalStorage.*;
@@ -43,16 +44,24 @@ public class GraficoCaidaLibreController implements Initializable {
         tablaMovimiento.setItems(caidaLibreDAO.getList());
     }
     public void llenarGraficoCaidaLibre(MapProperty<?extends Number,?extends Number> mapProperty) {
+        RegresionLineal regresionLineal = new RegresionLineal ();
         velocidadTiempoCaidaLibre.get().entrySet().removeIf(k -> k.getKey() > General.tiempoAnimacion);
         posicionTiempoCaidaLibre.get().entrySet().removeIf(k->k.getKey()>General.tiempoAnimacion);
         aceleracionCaidaLibre.get().entrySet().removeIf(k->k.getKey()>General.tiempoAnimacion);
         caidaLibreDAO.getList().clear();
         lineChartVelocidadTiempo.getData().clear();
         XYChart.Series<Number, Number> dataSeries = new XYChart.Series<>();
+        List<Double> x = new ArrayList<> (  );
+        List<Integer> y = new ArrayList<> (  );
+
         mapProperty.forEach((k, v) -> {
+            x.add ( (Double) v );
+            y.add ( (Integer) k );
             dataSeries.getData().add(new XYChart.Data<>(k, v));
             caidaLibreDAO.add(new CaidaLibreModel((int) k, (double) v));
         });
+        regresionLineal.setRegresionLineal ( x,y );
+        System.out.println (regresionLineal.obtenerEcuacion () );
         lineChartVelocidadTiempo.getData().addAll(dataSeries);
     }
 
@@ -61,18 +70,18 @@ public class GraficoCaidaLibreController implements Initializable {
             String tipo = tipoInformacionChoiceBox.getSelectionModel().getSelectedItem();
             switch (tipo){
                 case "Velocidad vs Tiempo"->{
-                    tableColumnVelocidad.setText("Velocidad");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad");
+                    tableColumnVelocidad.setText("Velocidad (m/s)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad (m/s)");
                     llenarGraficoCaidaLibre(velocidadTiempoCaidaLibre);
                 }
                 case "Posición vs Tiempo"->{
-                    tableColumnVelocidad.setText("Posición");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Posición");
+                    tableColumnVelocidad.setText("Posición (m)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Posición (m)");
                     llenarGraficoCaidaLibre(LocalStorage.posicionTiempoCaidaLibre);
                 }
                 case "Aceleración vs Tiempo"->{
-                    tableColumnVelocidad.setText("Aceleración");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración");
+                    tableColumnVelocidad.setText("Aceleración (m/s²)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración (m/s²)");
                     llenarGraficoCaidaLibre(LocalStorage.aceleracionCaidaLibre);
                 }
                 default -> throw new IllegalArgumentException();

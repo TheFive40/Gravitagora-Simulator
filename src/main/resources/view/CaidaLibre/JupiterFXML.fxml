@@ -58,17 +58,17 @@
                               <Image url="@../../images/saturno.jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="167.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/saturno.jpg" />
-                           </image>
-                        </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="129.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/saturno.jpg" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="185.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/saturno.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="167.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/saturno.jpg" />
                            </image>

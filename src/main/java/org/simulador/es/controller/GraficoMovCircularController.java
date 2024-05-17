@@ -39,18 +39,18 @@ public class GraficoMovCircularController implements Initializable {
             String tipo = tipoInformacionChoiceBox.getSelectionModel().getSelectedItem();
             switch (tipo){
                 case "Velocidad vs Tiempo"->{
-                    tableColumnVelocidad.setText("Velocidad");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad");
+                    tableColumnVelocidad.setText("Velocidad (m/s)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad (m/s)");
                     llenarGraficoMovCircular(velocidadTiempoMovCircular);
                 }
                 case "Posición vs Tiempo"->{
-                    tableColumnVelocidad.setText("Posición");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Posición");
+                    tableColumnVelocidad.setText("Posición (m)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Posición (m)");
                     llenarGraficoMovCircular(posicionTiempoMovCircular);
                 }
                 case "Aceleración vs Tiempo"->{
-                    tableColumnVelocidad.setText("Aceleración");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración");
+                    tableColumnVelocidad.setText("Aceleración (m/s²)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración (m/s²)");
                     llenarGraficoMovCircular(aceleracionTiempoMovCircular);
                 }
                 default -> throw new IllegalArgumentException();

@@ -55,10 +55,10 @@
                      <content>
                            <LineChart fx:id="lineChartVelocidadTiempo" animated="false">
                                <xAxis>
-                                   <NumberAxis label="Tiempo" />
+                                   <NumberAxis label="Tiempo (s)" />
                                </xAxis>
                                <yAxis>
-                                   <NumberAxis label="Velocidad" />
+                                   <NumberAxis label="Velocidad (m/s)" />
                                </yAxis>
                            </LineChart>
                      </content>

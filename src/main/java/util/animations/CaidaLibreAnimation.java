@@ -14,8 +14,10 @@ import lombok.Getter;
 import lombok.Setter;
 import util.General;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.simulador.es.data.LocalStorage.*;
 
@@ -47,8 +49,8 @@ public class CaidaLibreAnimation {
     }
 
     public void establecerAnimacion () {
-        if((alturaInicial <= 200 && velocidadInicial <= 45) || (alturaInicial > 200 &&
-                alturaInicial<=300 && velocidadInicial <= 25)) {
+        if ((alturaInicial <= 200 && velocidadInicial <= 45) || (alturaInicial > 200 &&
+                alturaInicial <= 300 && velocidadInicial <= 25)) {
             particula.setLayoutX ( contenedorPrincipal.getWidth ( ) / 2 );
             AtomicInteger tiempo = new AtomicInteger ( );
             timeline = new Timeline ( new KeyFrame ( Duration.millis ( 50 ), e -> {
@@ -71,26 +73,31 @@ public class CaidaLibreAnimation {
                         particula.getRadius ( )) - 60) ||
                         (desplazamientoAnimacion + alturaInicial) >= 360) {
                     //particula.setTranslateY(15.0);
-
+                    formatoTabla ( );
                     General.tiempoAnimacion = tiempo.get ( );
                     timeline.stop ( );
                 }
+                //Aplicamos un formato para que los numeros no se vean demasiado extensos
+                BigDecimal velocidadFormato = new BigDecimal ( (velocidad * 100) );
+                BigDecimal desplazamientoFormato = new BigDecimal ( (desplazamiento) );
+                desplazamientoFormato = desplazamientoFormato.setScale ( 2, RoundingMode.DOWN );
+                velocidadFormato = velocidadFormato.setScale ( 2, RoundingMode.DOWN );
                 //Guardamos la informacion en el LocalStorage
-                velocidadTiempoCaidaLibre.put ( tiempo.get ( ), velocidad * 100 );
+                velocidadTiempoCaidaLibre.put ( tiempo.get ( ), velocidadFormato.doubleValue ( ) );
                 aceleracionCaidaLibre.put ( tiempo.get ( ), getGravedad ( ) );
-                posicionTiempoCaidaLibre.put ( tiempo.get ( ), desplazamiento );
+                posicionTiempoCaidaLibre.put ( tiempo.get ( ), desplazamientoFormato.doubleValue ( ) );
             } ) );
             //General.tiempoAnimacion = getTiempo();
             timeline.setCycleCount ( Timeline.INDEFINITE );
             timeline.play ( );
             //Altura Inicial > 0 && Altura Inicial < 200 && Velocidad <=45
             //Velocidad <=25 && Altura Inicial > 200 && Altura Inicial <=300
-        }else{
+        } else {
             General.mostrarMensajeAlerta ( "Condiciones Iniciales ",
                     "¡Haz excedido el limite permitido!",
                     "¡Por favor asegurate de dar valores realistas \n" +
                             "Para una mejor experiencia del simulador!",
-                    Alert.AlertType.WARNING);
+                    Alert.AlertType.WARNING );
         }
     }
 
@@ -99,5 +106,21 @@ public class CaidaLibreAnimation {
         return getVelocidadInicial ( ) + (getGravedad ( ) * tiempo / 100);
     }
 
+    void formatoTabla () {
+        AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "" );
+        tablaCaidaLibre.set ( "Velocidad \t\t\t\tTiempo\n" );
+        velocidadTiempoCaidaLibre.forEach ( ( k, v ) -> {
+            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
+        } );
+        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Aceleracion \t\t\tTiempo\n" );
+        aceleracionCaidaLibre.forEach ( ( k, v ) -> {
+            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
+        } );
+        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Posicion \t\t\t\tTiempo\n" );
+        posicionTiempoCaidaLibre.forEach ( (k,v)->{
+            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
+        } );
+        General.tablaValores = tablaCaidaLibre.get ();
+    }
 
 }

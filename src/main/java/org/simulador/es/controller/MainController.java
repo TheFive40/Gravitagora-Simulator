@@ -275,12 +275,13 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        comboGravedades.getSelectionModel ().select ( item );
         //Inicializacion de objetos
         caidaLibre = new CaidaLibreAnimation(particula, contenedorAnimacion);
+        caidaLibre.setGravedad ( Gravedad.TIERRA );
         //Setteo de Atributos a los Objetos previamente Definidos
         comboGravedades.getItems().addAll("Tierra", "Luna", "Marte", "Jupiter"
                 , "Saturno");
+        comboGravedades.getSelectionModel ().select ( item );
         caidaLibreRadioButton.setSelected(true);
 
     }

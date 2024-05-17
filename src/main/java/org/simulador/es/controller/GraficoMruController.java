@@ -48,14 +48,13 @@ public class GraficoMruController implements Initializable {
             String tipo = tipoInformacionChoiceBox.getSelectionModel().getSelectedItem();
             switch (tipo){
                 case "Velocidad vs Tiempo"->{
-                    tableColumnVelocidad.setText("Velocidad");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad");
+                    tableColumnVelocidad.setText("Velocidad (m/s)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad (m/s)");
                     llenarGraficoLineal(LocalStorage.velocidadTiempoMru);
                 }
                 case "Desplazamiento vs Tiempo"->{
-                    tableColumnVelocidad.setText("Desplazamiento");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Desplazamiento");
-
+                    tableColumnVelocidad.setText("Desplazamiento (m)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Desplazamiento (m)");
                     llenarGraficoLineal(LocalStorage.desplazamientoTiempoMru);
                 }
                 default -> throw new IllegalArgumentException();

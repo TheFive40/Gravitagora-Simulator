@@ -54,6 +54,16 @@
                     </VBox>
                   <AnchorPane fx:id="contenedorAnimacion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="427.0" prefWidth="431.0" snapToPixel="false" style="-fx-border-color: black; -fx-background-color: #1B022F;">
                      <children>
+                        <ImageView fitHeight="91.0" fitWidth="153.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/sueloLunar.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="91.0" fitWidth="146.0" layoutX="284.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/sueloLunar.jpg" />
+                           </image>
+                        </ImageView>
                         <ImageView fitHeight="91.0" fitWidth="151.0" layoutX="99.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/sueloLunar.jpg" />
@@ -71,11 +81,6 @@
                         </ImageView>
                         <Circle fill="WHITE" layoutX="217.0" layoutY="102.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fx:id="particula" fill="RED" layoutX="217.0" layoutY="14.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="91.0" fitWidth="153.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/sueloLunar.jpg" />
-                           </image>
-                        </ImageView>
                         <ImageView fitHeight="79.0" fitWidth="80.0" layoutX="344.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/tierra.png" />
@@ -105,11 +110,6 @@
                         <Circle fill="WHITE" layoutX="413.0" layoutY="122.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="WHITE" layoutX="82.0" layoutY="21.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="WHITE" layoutX="26.0" layoutY="132.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />
-                        <ImageView fitHeight="91.0" fitWidth="146.0" layoutX="284.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/sueloLunar.jpg" />
-                           </image>
-                        </ImageView>
                         <ImageView fitHeight="150.0" fitWidth="116.0" layoutX="5.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/png-transparent-spacecraft-rocket-cartoon-spaceship-miscellaneous-sticker-outer-space-removebg-preview.png" />

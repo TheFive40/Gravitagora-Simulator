@@ -58,17 +58,22 @@
                               <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="91.0" fitWidth="163.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="91.0" fitWidth="163.0" layoutX="275.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
+                           </image>
+                        </ImageView>
                         <ImageView fitHeight="91.0" fitWidth="163.0" layoutX="184.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="91.0" fitWidth="163.0" layoutX="50.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="91.0" fitWidth="163.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
                            </image>
@@ -105,11 +110,6 @@
                         <ImageView fitHeight="150.0" fitWidth="116.0" layoutX="12.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/png-transparent-spacecraft-rocket-cartoon-spaceship-miscellaneous-sticker-outer-space-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="91.0" fitWidth="163.0" layoutX="275.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/fondo-agrietado-rojo-del-suelo-104288696.png" />
                            </image>
                         </ImageView>
                      </children>

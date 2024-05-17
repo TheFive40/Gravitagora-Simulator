@@ -10,7 +10,10 @@ import lombok.Getter;
 import lombok.Setter;
 import util.General;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.simulador.es.data.LocalStorage.*;
 
@@ -28,48 +31,74 @@ public class MovCircularAnimation {
     private Circle particula;
     private AnchorPane contenedorAnimacion;
 
-    public MovCircularAnimation(Circle particula, AnchorPane contenedorAnimacion) {
+    public MovCircularAnimation ( Circle particula, AnchorPane contenedorAnimacion ) {
         this.particula = particula;
         this.contenedorAnimacion = contenedorAnimacion;
     }
 
-    public void establecerAnimacion(double frecuenciaAngular) {
-        if(radio>170 || radio < -170){
+    public void establecerAnimacion ( double frecuenciaAngular ) {
+        if (radio > 170 || radio < -170) {
             General.mostrarMensajeAlerta ( "Condiciones Iniciales ",
                     "¡Haz excedido el limite permitido!",
                     "¡Por favor asegurate de dar valores realistas \n" +
                             "Para una mejor experiencia del simulador!",
-                    Alert.AlertType.WARNING);
+                    Alert.AlertType.WARNING );
             return;
         }
-        AtomicInteger tiempo = new AtomicInteger();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(16), e -> {
+        AtomicInteger tiempo = new AtomicInteger ( );
+        Timeline timeline = new Timeline ( new KeyFrame ( Duration.millis ( 16 ), e -> {
 
-            tiempo.getAndIncrement();
-            double CenterX = (contenedorAnimacion.getWidth() / 2);
-            double CenterY = (contenedorAnimacion.getHeight() / 8);
+            tiempo.getAndIncrement ( );
+            double CenterX = (contenedorAnimacion.getWidth ( ) / 2);
+            double CenterY = (contenedorAnimacion.getHeight ( ) / 8);
 
-            double angle = (frecuenciaAngular * tiempo.get() % 360);
-            double x = CenterX + radio * Math.cos(Math.toRadians(angle));
-            double y = CenterY + radio * Math.sin(Math.toRadians(angle));
+            double angle = (frecuenciaAngular * tiempo.get ( ) % 360);
+            double x = CenterX + radio * Math.cos ( Math.toRadians ( angle ) );
+            double y = CenterY + radio * Math.sin ( Math.toRadians ( angle ) );
             //Calculos de velocidades  y aceleracion Centripeta y Angular
-            velocidadAngular = angle / tiempo.get();
+            velocidadAngular = angle / tiempo.get ( );
             velocidadTangencial = radio * velocidadAngular;
-            aceleracionCentripeta = Math.pow(velocidadTangencial, 2) / radio;
-            aceleracionAngular = velocidadAngular / tiempo.get();
-            posicionAngular = Math.toRadians(velocidadAngular) * tiempo.get();
+            aceleracionCentripeta = Math.pow ( velocidadTangencial, 2 ) / radio;
+            aceleracionAngular = velocidadAngular / tiempo.get ( );
+            posicionAngular = Math.toRadians ( velocidadAngular ) * tiempo.get ( );
+            //Aplicamos formato a los valores Numericos
+            BigDecimal formatoVelocidadTiempo = new BigDecimal ( velocidadAngular );
+            BigDecimal formatoAceleracionTiempo = new BigDecimal ( aceleracionAngular );
+            BigDecimal formatoPosicion = new BigDecimal ( posicionAngular );
+            formatoVelocidadTiempo = formatoVelocidadTiempo.setScale ( 2, RoundingMode.DOWN );
+            formatoAceleracionTiempo = formatoVelocidadTiempo.setScale ( 2, RoundingMode.DOWN );
+            formatoPosicion = formatoAceleracionTiempo.setScale ( 3,RoundingMode.DOWN );
             //Guardamos la informacion en el LocalStorage
-            velocidadTiempoMovCircular.put(tiempo.get(), velocidadAngular);
-            aceleracionTiempoMovCircular.put(tiempo.get(), aceleracionAngular);
-            posicionTiempoMovCircular.put(tiempo.get(), posicionAngular);
+            velocidadTiempoMovCircular.put ( tiempo.get ( ), formatoVelocidadTiempo.doubleValue ( ) );
+            aceleracionTiempoMovCircular.put ( tiempo.get ( ), formatoAceleracionTiempo.doubleValue () );
+            posicionTiempoMovCircular.put ( tiempo.get ( ), formatoAceleracionTiempo.doubleValue () );
             //Colocamos la particula en un punto de nuestro eje de coordenadas
-            particula.setLayoutX(x);
-            particula.setCenterY(y);
-        }));
-        General.tiempoAnimacion = getTiempo();
-        timeline.setOnFinished(event -> tiempo.set(0));
-        timeline.setCycleCount(getTiempo() * 1000 / 16);
-        timeline.play();
+            particula.setLayoutX ( x );
+            particula.setCenterY ( y );
+        } ) );
+        General.tiempoAnimacion = getTiempo ( );
+        timeline.setOnFinished ( event -> {
+            tiempo.set ( 0 );
+            formatoTabla ( );
+        } );
+        timeline.setCycleCount ( getTiempo ( ) * 1000 / 16 );
+        timeline.play ( );
     }
 
+    void formatoTabla () {
+        AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "\nMovimiento CIRCULAR \n" );
+        tablaCaidaLibre.set ( "Velocidad \t\t\t\tTiempo\n" );
+        velocidadTiempoMovCircular.forEach ( ( k, v ) -> {
+            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
+        } );
+        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Aceleracion \t\t\tTiempo\n" );
+        aceleracionTiempoMovCircular.forEach ( ( k, v ) -> {
+            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
+        } );
+        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Posicion \t\t\t\tTiempo\n" );
+        posicionTiempoMovCircular.forEach ( ( k, v ) -> {
+            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
+        } );
+        General.tablaValores = tablaCaidaLibre.get ( );
+    }
 }

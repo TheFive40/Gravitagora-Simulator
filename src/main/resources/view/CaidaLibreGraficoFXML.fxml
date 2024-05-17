@@ -43,8 +43,8 @@
       <children>
               <TableView fx:id="tablaMovimiento" prefHeight="389.0" prefWidth="264.0">
                <columns>
-                  <TableColumn fx:id="tableColumnVelocidad" prefWidth="119.0" text="Velocidad" />
-                  <TableColumn fx:id="tableColumnTiempo" prefWidth="128.0" text="Tiempo" />
+                  <TableColumn fx:id="tableColumnVelocidad" prefWidth="129.0" text="Velocidad (m/s)" />
+                  <TableColumn fx:id="tableColumnTiempo" prefWidth="132.0" text="Tiempo (s)" />
                </columns></TableView>
       
               <!-- Gráfico creativo -->
@@ -54,10 +54,10 @@
                      <content>
                            <LineChart fx:id="lineChartVelocidadTiempo" animated="false">
                                <xAxis>
-                                   <NumberAxis label="Tiempo" />
+                                   <NumberAxis label="Tiempo (s)" />
                                </xAxis>
                                <yAxis>
-                                   <NumberAxis label="Velocidad" />
+                                   <NumberAxis label="Velocidad (m/s)" />
                                </yAxis>
                            </LineChart>
                      </content>

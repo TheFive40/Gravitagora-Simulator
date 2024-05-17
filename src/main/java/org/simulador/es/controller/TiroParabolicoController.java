@@ -6,14 +6,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import org.simulador.es.data.LocalStorage;
 import util.General;
 import util.animations.TiroParabolicoAnimation;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -63,11 +67,16 @@ public class TiroParabolicoController implements Initializable {
     private TextField textFieldVelocidadObjetoX;
     @FXML
     private TextField textFieldVelocidadObjetoY;
+    @FXML
+    private Canvas canvaComponent;
+    @FXML
+    private volatile HBox contenedorArena;
     private TiroParabolicoAnimation tiroParabolicoAnimation;
 
 
-
     public void iniciarSimulacion(ActionEvent event) {
+        tiroParabolicoAnimation.setContenedorArena ( contenedorArena );
+        tiroParabolicoAnimation.setCanvaProperty ( canvaComponent );
         tiroParabolicoAnimation.setMasa(Double.parseDouble(textFieldMasaProyectil.getText()));
         tiroParabolicoAnimation.setVelocidadInicial(Double.parseDouble(textFieldVelocidadProyectil.getText()));
         tiroParabolicoAnimation.setAngulo(sliderAnguloInicial.getValue());
@@ -100,14 +109,17 @@ public class TiroParabolicoController implements Initializable {
     }
 
     public void reiniciarSimulacion(ActionEvent event) {
+        //GraphicsContext graphicsContext = canvaComponent.getGraphicsContext2D ();
+        //graphicsContext.clearRect ( 0,0,canvaComponent.getWidth (),canvaComponent.getHeight () );
         velocidadTiempoMovCircular.set(FXCollections.observableHashMap());
         aceleracionTiempoMovCircular.set(FXCollections.observableHashMap());
         posicionTiempoMovCircular.set(FXCollections.observableHashMap());
-        General.mostrarMensajeAlerta("Datos limpiados",
-                "La animación ha sido reestablecida", "Los datos anteriores de" +
-                        " la animacion anterior han sido eliminado exitosamente ", Alert.AlertType.INFORMATION);
+        tiroParabolicoRadioButton.fire ();
     }
-
+    @FXML
+    void eventoTiroParabolico( ActionEvent event){
+        General.agregarContenedorPadre ( General.RUTA_TIRO_PARABOLICO,contenedorPrincipal );
+    }
     @FXML
     void eventoGraficarCaidaLibre(ActionEvent event) throws IOException {
         if (LocalStorage.velocidadTiempoCaidaLibre != null && LocalStorage.velocidadTiempoCaidaLibre.isEmpty()) {

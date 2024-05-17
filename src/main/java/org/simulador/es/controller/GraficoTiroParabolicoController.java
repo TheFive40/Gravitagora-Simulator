@@ -43,24 +43,24 @@ public class GraficoTiroParabolicoController implements Initializable {
             String tipo = tipoInformacionChoiceBox.getSelectionModel().getSelectedItem();
             switch (tipo) {
                 case "Velocidad en X vs Tiempo" -> {
-                    tableColumnVelocidad.setText("Velocidad X");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad X");
+                    tableColumnVelocidad.setText("Velocidad X (m/s)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad (m/s)");
                     llenarGraficoTiroParabolico(xVelocidadTiempoTiroParabolico);
                 }
                 case "Velocidad en Y vs Tiempo"->{
-                    tableColumnVelocidad.setText("Velocidad Y");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad Y");
+                    tableColumnVelocidad.setText("Velocidad Y (m/s)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Velocidad (m/s)");
                     llenarGraficoTiroParabolico(yVelocidadTiempoTiroParabolico);
 
                 }
                 case "Aceleración X vs Tiempo" -> {
-                    tableColumnVelocidad.setText("Aceleracion X");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleracion X");
+                    tableColumnVelocidad.setText("Aceleracion X (m/s²)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleracion (m/s²)");
                     llenarGraficoTiroParabolico(xAceleracionTiempoTiroParabolico);
                 }
                 case "Aceleración Y vs Tiempo" -> {
-                    tableColumnVelocidad.setText("Aceleración Y");
-                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración Y");
+                    tableColumnVelocidad.setText("Aceleración Y (m/s²)");
+                    lineChartVelocidadTiempo.getYAxis().setLabel("Aceleración (m/s²)" );
                     llenarGraficoTiroParabolico(yAceleracionTiempoTiroParabolico);
                 }
                 default -> throw new IllegalArgumentException();

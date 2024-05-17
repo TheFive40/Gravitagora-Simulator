@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -20,7 +22,7 @@
                         <RadioButton fx:id="caidaLibreRadioButton" onAction="#eventoCaidaLibreRadioButton" text="Caida Libre" />
                         <RadioButton fx:id="mruRadioButton" onAction="#eventoMruRadioButton" prefHeight="17.0" prefWidth="123.0" text="MRU" />
                         <RadioButton fx:id="movCircularRadioButton" onAction="#eventoMovCircularRadioButton" prefHeight="17.0" prefWidth="144.0" text="Movimiento Circular" />
-                        <RadioButton fx:id="tiroParabolicoRadioButton" text="Tiro Parabólico" />
+                        <RadioButton fx:id="tiroParabolicoRadioButton" onAction="#eventoTiroParabolico" text="Tiro Parabólico" />
                         <Button alignment="CENTER" onAction="#iniciarSimulacion" prefHeight="25.0" prefWidth="139.0" text="Iniciar Simulación">
                            <VBox.margin>
                               <Insets top="90.0" />
@@ -42,11 +44,241 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <ScrollPane prefViewportHeight="415.0" prefViewportWidth="428.0">
+                  <ScrollPane maxWidth="1.7976931348623157E308" prefViewportHeight="415.0" prefViewportWidth="428.0">
                      <content>
-                        <AnchorPane fx:id="contenedorAnimacion" prefHeight="437.0" prefWidth="427.0" style="-fx-border-color: black;">
+                        <AnchorPane fx:id="contenedorAnimacion" prefHeight="411.0" prefWidth="422.0" style="-fx-border-color: black; -fx-background-color: B6FFFE;">
                            <children>
-                              <Circle fx:id="proyectil" fill="DODGERBLUE" layoutX="26.0" layoutY="248.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                              <HBox fx:id="contenedorArena" layoutX="3.0" layoutY="307.0" prefHeight="100.0" prefWidth="422.0">
+                                 <children>
+                                    <ImageView fitHeight="130.0" fitWidth="352.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="14.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="359.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="1012.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="1346.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="1680.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="2014.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="2348.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="2682.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="3016.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="3350.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="3684.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="4018.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="4352.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="4686.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="5020.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="5354.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="5688.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="6022.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <ImageView fitHeight="167.0" fitWidth="349.0" layoutX="6356.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/sand_PNG30.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets left="-15.0" />
+                                 </padding>
+                              </HBox>
+                              <Canvas fx:id="canvaComponent" height="404.0" layoutX="3.0" layoutY="3.0" width="422.0">
+                                 <rotationAxis>
+                                    <Point3D y="100.0" z="1.0" />
+                                 </rotationAxis>
+                              </Canvas>
+                              <Circle fx:id="proyectil" fill="#9d9d9e" layoutX="124.0" layoutY="284.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fitHeight="111.0" fitWidth="110.0" layoutX="14.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/cañon-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="4.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="105.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="200.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="82.0" fitWidth="80.0" layoutX="335.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="87.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="175.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="269.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="69.0" fitWidth="67.0" layoutX="10.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/Sun-PNG-Transparent-Image.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="50.0" layoutX="304.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/nubes-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                      </content>

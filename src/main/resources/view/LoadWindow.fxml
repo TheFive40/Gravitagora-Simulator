@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="loadingWindow" alignment="CENTER" prefHeight="300" prefWidth="400" spacing="20" style="-fx-background-color: #070E0E;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.LoadWindowController">
+   <children>
+      <ImageView fitHeight="54.0" fitWidth="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/text-1715639846778.png" />
+         </image>
+      </ImageView>
+       <VBox styleClass="loading-bar">
+          <children>
+              <VBox styleClass="loading-progress" />
+          </children>
+       </VBox>
+      <ProgressBar fx:id="progressIndicator" prefHeight="18.0" prefWidth="312.0" progress="0.0" />
+   </children>
+
+</VBox>

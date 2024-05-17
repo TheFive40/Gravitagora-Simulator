@@ -53,6 +53,16 @@
                     </VBox>
                   <AnchorPane fx:id="contenedorAnimacion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="427.0" prefWidth="431.0" snapToPixel="false" style="-fx-border-color: black; -fx-background-color: #DAD1CC;">
                      <children>
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="304.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/jupiter.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="118.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/jupiter.jpg" />
+                           </image>
+                        </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="185.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/jupiter.jpg" />
@@ -94,17 +104,7 @@
                               <Image url="@../../images/nave-espacial-de-dibujos-animados-aislado-sobre-fondo-blanco_43633-869-removebg-preview.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="118.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/jupiter.jpg" />
-                           </image>
-                        </ImageView>
                         <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="235.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/jupiter.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="100.0" fitWidth="185.0" layoutX="304.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/jupiter.jpg" />
                            </image>
