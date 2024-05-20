@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" styleClass="chat-container" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.menu.AsistenteVirtualController">
+   <children>
+   
+       <VBox fx:id="chatBox" spacing="5" styleClass="chat-box">
+      <children>
+              <TextArea fx:id="textAreaRespuesta" editable="false" prefHeight="200" styleClass="chat-text-area" wrapText="true" />
+      </children>
+       </VBox>
+   
+       <HBox prefHeight="36.0" prefWidth="465.0" spacing="5" styleClass="input-box">
+      <children>
+              <TextField fx:id="textFieldMensaje" prefHeight="25.0" prefWidth="179.0" promptText="Escribe tu mensaje..." styleClass="message-field">
+               <HBox.margin>
+                  <Insets left="11.0" />
+               </HBox.margin>
+            </TextField>
+              <Button fx:id="buttonEnviar" onAction="#eventoEnviarMensajeButton" prefHeight="25.0" prefWidth="62.0" styleClass="send-button" text="Enviar" />
+      </children>
+       </HBox>
+   </children>
+
+</VBox>

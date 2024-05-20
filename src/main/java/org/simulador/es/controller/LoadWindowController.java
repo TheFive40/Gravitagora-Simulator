@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -42,6 +43,8 @@ public class LoadWindowController implements Initializable {
                         new FXMLLoader ( getClass ().getResource ( General.RUTA_CAIDA_LIBRE ) ).load () ));
                 stage.setTitle("Gravitagora Simulator");
                 stage.setResizable(false);
+                stage.getIcons ().add ( new Image ( getClass ().getResource ( "/images/logo2-nofondo.png" ).toExternalForm () ) );
+
                 stage.show ();
             } catch (IOException e) {
                 throw new RuntimeException ( e );

@@ -2,7 +2,6 @@ package util.animations;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.canvas.Canvas;
@@ -19,6 +18,7 @@ import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
 import org.simulador.es.data.LocalStorage;
+import org.simulador.es.data.Punto;
 import util.General;
 
 import java.math.BigDecimal;
@@ -61,7 +61,12 @@ public class TiroParabolicoAnimation {
     private AnchorPane contenedorAnimacion;
 
     private Canvas canvaProperty;
-    private volatile HBox contenedorArena;
+
+    private HBox contenedorArena;
+
+    private boolean puntoMaximo, puntoAnterior = false;
+
+    private int contador = 0, contador2 = 0;
 
     public TiroParabolicoAnimation ( Circle proyectil, AnchorPane contenedorAnimacion ) {
         setProjectile ( proyectil );
@@ -71,6 +76,7 @@ public class TiroParabolicoAnimation {
     public void establecerAnimacion () {
         // Inicializar posiciones y velocidades
         double angleRadians = Math.toRadians ( angulo );
+        AtomicInteger posiciones = new AtomicInteger ( );
         xPosicion = 0;
         yPosicion = 0; // Altura inicial
         xVelocidad = velocidadInicial * Math.cos ( angleRadians );
@@ -88,14 +94,14 @@ public class TiroParabolicoAnimation {
             BigDecimal formatoAceleracionX = new BigDecimal ( xAcceleration );
             BigDecimal formatoAceleracionY = new BigDecimal ( yAcceleration );
             formatoVelocidadX = formatoVelocidadX.setScale ( 2, RoundingMode.DOWN );
-            formatoVelocidadY = formatoVelocidadY.setScale ( 2,RoundingMode.DOWN );
-            formatoAceleracionX = formatoAceleracionX.setScale ( 2,RoundingMode.DOWN );
-            formatoAceleracionY = formatoVelocidadY.setScale ( 2,RoundingMode.DOWN );
+            formatoVelocidadY = formatoVelocidadY.setScale ( 2, RoundingMode.DOWN );
+            formatoAceleracionX = formatoAceleracionX.setScale ( 2, RoundingMode.DOWN );
+            formatoAceleracionY = formatoAceleracionY.setScale ( 2, RoundingMode.DOWN );
             //Guardamos informacion en el LocalStorage
-            LocalStorage.xVelocidadTiempoTiroParabolico.put ( tiempo.get ( ), formatoVelocidadX.doubleValue () );
-            LocalStorage.yVelocidadTiempoTiroParabolico.put ( tiempo.get ( ), formatoVelocidadY.doubleValue () );
-            LocalStorage.xAceleracionTiempoTiroParabolico.put ( tiempo.get ( ), formatoAceleracionX.doubleValue () );
-            LocalStorage.yAceleracionTiempoTiroParabolico.put ( tiempo.get ( ), formatoAceleracionY.doubleValue () );
+            LocalStorage.xVelocidadTiempoTiroParabolico.put ( tiempo.get ( ), formatoVelocidadX.doubleValue ( ) );
+            LocalStorage.yVelocidadTiempoTiroParabolico.put ( tiempo.get ( ), formatoVelocidadY.doubleValue ( ) );
+            LocalStorage.xAceleracionTiempoTiroParabolico.put ( tiempo.get ( ), formatoAceleracionX.doubleValue ( ) );
+            LocalStorage.yAceleracionTiempoTiroParabolico.put ( tiempo.get ( ), formatoAceleracionY.doubleValue ( ) );
             xVelocidad += xAcceleration * tiempo.get ( ) / 100;
             yVelocidad += yAcceleration * tiempo.get ( ) / 100;
             xPosicion += xVelocidad * tiempo.get ( ) / 100;
@@ -103,20 +109,42 @@ public class TiroParabolicoAnimation {
             // Actualizar la posición del proyectil
             projectile.setCenterX ( xPosicion );
             projectile.setCenterY ( yPosicion );
-            //Accedemos al canvas y dibujamos
-            canvaProperty.setWidth ( contenedorAnimacion.getWidth ( ) );
+            //Accedemos al canvas y dibujamos dentro del canvas
             GraphicsContext gc = canvaProperty.getGraphicsContext2D ( );
             gc.setFill ( Color.BLACK );
-            gc.fillOval ( xPosicion + 124, (yPosicion + 270), 2, 2 );
+            //Evaluamos el contador
+            if (formatoVelocidadY.doubleValue ( ) > 0 && contador == 0) {
+                gc.fillOval ( xPosicion + 124, (yPosicion + 270), 4, 4 );
+                puntoMaximo = true;
+                contador++;
+            } else {
+                puntoMaximo = false;
+            }
+            double valorProximo = yVelocidad + (yAcceleration * tiempo.get ( ) / 100);
+            //Creamos un objeto punto para guardar las coordenadas de cada punto trazado en el canvas
+            if (!puntoMaximo && posiciones.get ( ) >= 3) {
+                if (yVelocidad < 0 && valorProximo > 0) {
+                    puntoAnterior = true;
+                }
+                if (!puntoAnterior || contador2 > 0) {
+                    gc.fillOval ( xPosicion + 124, (yPosicion + 270), 4, 4 );
+                    Punto punto = new Punto ( (int) (xPosicion + 124), (int) (yPosicion + 270) );
+                    punto.setTiempo ( tiempo.get ( ) );
+                    punto.setVelocidadX ( formatoVelocidadX.doubleValue ( ) );
+                    punto.setVelocidadY ( formatoVelocidadY.doubleValue ( ) );
+                    puntoObservableList.add ( punto );
+                }
+                contador2 = (puntoAnterior) ? contador2 + 1 : contador2;
+                posiciones.set ( 0 );
+            }
+            posiciones.getAndIncrement ( );
             // Si el proyectil toca el suelo, detener la animación
             if (projectile.getCenterY ( ) > 80) {
                 timeline.stop ( );
-
                 Task<Void> task = new Task<> ( ) {
                     @Override
                     protected Void call () throws Exception {
-                        renderizarSuelo ( );
-                        formatoTabla();
+                        formatoTabla ( );
                         return null;
                     }
                 };
@@ -124,8 +152,8 @@ public class TiroParabolicoAnimation {
             }
 
             //Colocamos la informacion del mov en los textFields
-            textFieldVelocidadX.setText ( xVelocidad + " m/s²" );
-            textFieldVelocidadY.setText ( yVelocidad + " m/s²" );
+            textFieldVelocidadX.setText ( formatoVelocidadX.doubleValue ( ) + " m/s²" );
+            textFieldVelocidadY.setText ( formatoVelocidadY.doubleValue ( ) + " m/s²" );
         } ) );
 
         timeline.setCycleCount ( Timeline.INDEFINITE );
@@ -135,32 +163,32 @@ public class TiroParabolicoAnimation {
     public void renderizarSuelo () {
         int horizontales = (int) (contenedorAnimacion.getWidth ( ) / 349);
         for (int i = 0; i < horizontales; i++) {
-            ImageView imageView = new ImageView (new Image ( "/images/sand_PNG30.png" ) );
-            imageView.setPreserveRatio(false);
+            ImageView imageView = new ImageView ( new Image ( "/images/sand_PNG30.png" ) );
+            imageView.setPreserveRatio ( false );
             imageView.setFitHeight ( 130 );
             imageView.setFitWidth ( 352 );
-            Platform.runLater(() -> contenedorArena.getChildren().add(imageView));
-
+            Platform.runLater ( () -> contenedorArena.getChildren ( ).add ( imageView ) );
         }
     }
+
     void formatoTabla () {
         AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "" );
         tablaCaidaLibre.set ( "Velocidad X\t\t\t\tTiempo\n" );
         xVelocidadTiempoTiroParabolico.forEach ( ( k, v ) -> {
             tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
         } );
-        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Velocidad Y\t\t\tTiempo\n" );
+        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Velocidad Y\t\t\tTiempo\n" );
         yVelocidadTiempoTiroParabolico.forEach ( ( k, v ) -> {
             tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
         } );
-        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Aceleracion X\t\t\t\tTiempo\n" );
-        xAceleracionTiempoTiroParabolico.forEach ( (k,v)->{
+        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Aceleracion X\t\t\t\tTiempo\n" );
+        xAceleracionTiempoTiroParabolico.forEach ( ( k, v ) -> {
             tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
         } );
-        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Aceleracion Y\t\t\t\tTiempo\n" );
-        yAceleracionTiempoTiroParabolico.forEach ( (k,v)->{
+        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Aceleracion Y\t\t\t\tTiempo\n" );
+        yAceleracionTiempoTiroParabolico.forEach ( ( k, v ) -> {
             tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
         } );
-        General.tablaValores = tablaCaidaLibre.get ();
+        General.tablaValores = tablaCaidaLibre.get ( );
     }
 }

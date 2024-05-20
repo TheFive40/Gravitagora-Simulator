@@ -3,6 +3,7 @@ package org.simulador.es.data;
 import javafx.beans.property.MapProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class LocalStorage {
 
@@ -20,5 +21,7 @@ public class LocalStorage {
     public static MapProperty<Integer,Double> yVelocidadTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
     public static MapProperty<Integer,Double> xAceleracionTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
     public static MapProperty<Integer,Double> yAceleracionTiempoTiroParabolico = new SimpleMapProperty<>(FXCollections.observableHashMap());
+
+    public static ObservableList<Punto> puntoObservableList = FXCollections.observableArrayList ();
 
 }

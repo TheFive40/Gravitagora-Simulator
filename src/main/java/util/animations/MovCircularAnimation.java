@@ -56,22 +56,26 @@ public class MovCircularAnimation {
             double x = CenterX + radio * Math.cos ( Math.toRadians ( angle ) );
             double y = CenterY + radio * Math.sin ( Math.toRadians ( angle ) );
             //Calculos de velocidades  y aceleracion Centripeta y Angular
+
+
             velocidadAngular = angle / tiempo.get ( );
             velocidadTangencial = radio * velocidadAngular;
-            aceleracionCentripeta = Math.pow ( velocidadTangencial, 2 ) / radio;
-            aceleracionAngular = velocidadAngular / tiempo.get ( );
+            aceleracionCentripeta = (Math.pow ( velocidadAngular, 2 )) / radio;
+            aceleracionAngular = aceleracionCentripeta;
             posicionAngular = Math.toRadians ( velocidadAngular ) * tiempo.get ( );
+
+
             //Aplicamos formato a los valores Numericos
             BigDecimal formatoVelocidadTiempo = new BigDecimal ( velocidadAngular );
             BigDecimal formatoAceleracionTiempo = new BigDecimal ( aceleracionAngular );
             BigDecimal formatoPosicion = new BigDecimal ( posicionAngular );
             formatoVelocidadTiempo = formatoVelocidadTiempo.setScale ( 2, RoundingMode.DOWN );
-            formatoAceleracionTiempo = formatoVelocidadTiempo.setScale ( 2, RoundingMode.DOWN );
-            formatoPosicion = formatoAceleracionTiempo.setScale ( 3,RoundingMode.DOWN );
+            formatoAceleracionTiempo = formatoAceleracionTiempo.setScale ( 2, RoundingMode.DOWN );
+            formatoPosicion = formatoPosicion.setScale ( 3,RoundingMode.DOWN );
             //Guardamos la informacion en el LocalStorage
             velocidadTiempoMovCircular.put ( tiempo.get ( ), formatoVelocidadTiempo.doubleValue ( ) );
             aceleracionTiempoMovCircular.put ( tiempo.get ( ), formatoAceleracionTiempo.doubleValue () );
-            posicionTiempoMovCircular.put ( tiempo.get ( ), formatoAceleracionTiempo.doubleValue () );
+            posicionTiempoMovCircular.put ( tiempo.get ( ), formatoPosicion.doubleValue () );
             //Colocamos la particula en un punto de nuestro eje de coordenadas
             particula.setLayoutX ( x );
             particula.setCenterY ( y );

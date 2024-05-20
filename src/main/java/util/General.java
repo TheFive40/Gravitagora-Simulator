@@ -15,21 +15,22 @@ public class General {
     public static String RUTA_TIRO_PARABOLICO = "/view/TiroParabolicoFXML.fxml";
     public static String RUTA_CAIDA_LIBRE = "/view/MainFXML.fxml";
     public static String RUTA_MOV_CIRCULAR = "/view/MovCircularFXML.fxml";
-    public static String RUTA_GPT_4 = "/view/AsistenteVirtualFXML.fxml";
-    public static String RUTA_MRU_GRAFICO = "/view/MruGraficoFXML.fxml";
-    public static String RUTA_MOV_CIRCULAR_GRAFICO = "/view/MovCircularGraficoFXML.fxml";
-    public static String RUTA_CAIDA_LIBRE_GRAFICO = "/view/CaidaLibreGraficoFXML.fxml";
-    public static String RUTA_TIRO_PARABOLICO_GRAFICO = "/view/TiroParabolicoGraficoFXML.fxml";
-    public static String DEVELOPERS_RUTA = "/view/DesarrolladoresFXML.fxml";
-    public static String RUTA_LUNA_GRAVEDAD = "/view/CaidaLibre/LunaFXML.fxml";
-    public static String RUTA_MARTE_GRAVEDAD = "/view/CaidaLibre/MarteFXML.fxml";
-    public static String RUTA_SATURNO_GRAVEDAD = "/view/CaidaLibre/SaturnoFXML.fxml";
-    public static String RUTA_JUPITER_GRAVEDAD = "/view/CaidaLibre/JupiterFXML.fxml";
+    public static String RUTA_GPT_4 = "/view/vistasmenu/AsistenteVirtualFXML.fxml";
+    public static String RUTA_MRU_GRAFICO = "/view/graficos/MruGraficoFXML.fxml";
+    public static String RUTA_MOV_CIRCULAR_GRAFICO = "/view/graficos/MovCircularGraficoFXML.fxml";
+    public static String RUTA_CAIDA_LIBRE_GRAFICO = "/view/graficos/CaidaLibreGraficoFXML.fxml";
+    public static String RUTA_TIRO_PARABOLICO_GRAFICO = "/view/graficos/TiroParabolicoGraficoFXML.fxml";
+    public static String DEVELOPERS_RUTA = "/view/vistasmenu/DesarrolladoresFXML.fxml";
+    public static String RUTA_LUNA_GRAVEDAD = "/view/caidalibre/LunaFXML.fxml";
+    public static String RUTA_MARTE_GRAVEDAD = "/view/caidalibre/MarteFXML.fxml";
+    public static String RUTA_SATURNO_GRAVEDAD = "/view/caidalibre/SaturnoFXML.fxml";
+    public static String RUTA_JUPITER_GRAVEDAD = "/view/caidalibre/JupiterFXML.fxml";
     public static String tablaValores;
     public static String conversacion;
     public static final String API_URL = "https://api.openai.com/v1/chat/completions";
-    public static final String API_KEY = "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";
-    public static final String API_KEY2 = "sk-proj-fQxb4n1RaQ5YmzSFMf1gT3BlbkFJHeUQwbCcVsPq3TIogR7Y";
+    public static final String API_KEY2 = "sk-proj-LEWjfQbV58XdHOlkaJNuT3BlbkFJ2hSP5avfhOrZN1ncoY6r";
+    public static final String API_KEY_3  = "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";
+    public static final String API_KEY_4 = "sk-proj-gcuRlbWte9Gu8MpXq6UrT3BlbkFJnpliiAEpivVaAVCf4Bud";;
     private static String MODEL = "gpt-3.5-turbo";
     public static int tiempoAnimacion;
 
@@ -68,7 +69,7 @@ public class General {
                 "Toma en cuenta las siguientes tablas de valores: \n" + tablaValores + "\n Ahora te voy a dar el contexto de la conversacion \n" +
                 "(En caso de estar vacio ignora esto ultimo): " + conversacion + "\n Algo mas cuando des la respuesta NO coloques en ella tu nombre\n " +
                 "Pregunta del usuario: ";
-        OpenAiService service = new OpenAiService ( "sk-proj-RXokl1R1wicgMUhUpyDOT3BlbkFJRpm2rRQDj7qQFFsyBxHK" );
+        OpenAiService service = new OpenAiService ( "sk-tn58wyUba4DFLWHm1b96F5D13dD14f40Bd4bE36fB54a8358" );
         question.replaceAll ( "`", "" );
         CompletionRequest completionRequest = CompletionRequest.builder ( )
                 .prompt ( contexto +

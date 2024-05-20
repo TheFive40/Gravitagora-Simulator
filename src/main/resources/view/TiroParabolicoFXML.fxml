@@ -44,9 +44,9 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <ScrollPane maxWidth="1.7976931348623157E308" prefViewportHeight="415.0" prefViewportWidth="428.0">
+                  <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefViewportHeight="415.0" prefViewportWidth="428.0">
                      <content>
-                        <AnchorPane fx:id="contenedorAnimacion" prefHeight="411.0" prefWidth="422.0" style="-fx-border-color: black; -fx-background-color: B6FFFE;">
+                        <AnchorPane fx:id="contenedorAnimacion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="408.0" prefWidth="429.0" style="-fx-border-color: black; -fx-background-color: B6FFFE;">
                            <children>
                               <HBox fx:id="contenedorArena" layoutX="3.0" layoutY="307.0" prefHeight="100.0" prefWidth="422.0">
                                  <children>
@@ -283,7 +283,7 @@
                         </AnchorPane>
                      </content>
                   </ScrollPane>
-                  <AnchorPane prefHeight="415.0" prefWidth="180.0">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="415.0" prefWidth="180.0">
                      <children>
                         <VBox layoutX="1.0" layoutY="42.0" prefHeight="63.0" prefWidth="150.0" spacing="5">
                            <children>
@@ -338,13 +338,13 @@
                <items>
                   <MenuItem fx:id="menuItemCaidaLibre" mnemonicParsing="false" onAction="#eventoGraficarCaidaLibre" text="Caida libre" />
                   <MenuItem fx:id="menuItemMru" mnemonicParsing="false" onAction="#eventoGraficarMru" text="Movimiento Rectilineo Uniforme" />
-                  <MenuItem fx:id="menuItemMovCircular" mnemonicParsing="false" onAction="#eventoGraficarMovCircular" text="Movimiento Circular" />
-                  <MenuItem fx:id="menuItemTiroParabolico" mnemonicParsing="false" onAction="#eventoGraficarTiroParabolico" text="Tiro parabolico" />
+                  <MenuItem fx:id="menuItemMovCircular" mnemonicParsing="false" onAction="#graficarMovCircularEvent" text="Movimiento Circular" />
+                  <MenuItem fx:id="menuItemTiroParabolico" mnemonicParsing="false" onAction="#graficarTiroParabolicoEvent" text="Tiro parabolico" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Asistente Virtual">
                <items>
-                  <MenuItem fx:id="menuItemGpt4" mnemonicParsing="false" onAction="#eventoGpt4MenuItem" text="GPT-4" />
+                  <MenuItem fx:id="menuItemGpt4" mnemonicParsing="false" onAction="#GptMenuItemEvent" text="GPT-4" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Informacion de la App">

@@ -1,15 +1,10 @@
 package org.simulador.es.data;
-
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.BinaryOperator;
-import java.util.stream.Stream;
 
 @Getter
 @Setter
@@ -80,8 +75,10 @@ public class RegresionLineal {
     }
 
     public String obtenerEcuacion () {
+        System.out.println ("Pendiente " + pendiente );
+        System.out.println ("Intercepto " + intercepto );
         String equation = (intercepto < 0) ?
-                String.format ( "y = %.2fx - %.4f", pendiente, intercepto ) : String.format ( "y = %.2fx + %.2f", pendiente, intercepto );
+                String.format ( "y = %.4fx %.4f", pendiente, intercepto ) : String.format ( "y = %.4fx + %.4f", pendiente, intercepto );
         return equation;
     }
 }

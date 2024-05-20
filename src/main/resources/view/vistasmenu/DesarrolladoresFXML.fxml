@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="597.0" spacing="20" styleClass="developers-container" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.menu.DevelopersController">
+   <children>
+   
+       <Label styleClass="title-label" text="Programadores" />
+   
+       <HBox spacing="20" styleClass="developer-box">
+      <children>
+              <VBox spacing="5" styleClass="developer-info">
+                 <children>
+                     <ImageView fitHeight="100" fitWidth="100.0">
+                         <image>
+                             <Image url="@../../images/OIP.jpg" />
+                         </image>
+                     </ImageView>
+                     <Label alignment="CENTER" prefHeight="63.0" prefWidth="104.0" styleClass="developer-name" text="Angel Quintero  Dev Tester" textAlignment="CENTER" wrapText="true" />
+                 </children>
+              </VBox>
+      
+              <VBox spacing="5" styleClass="developer-info">
+         <children>
+                     <ImageView fitHeight="100" fitWidth="100">
+                         <image>
+                             <Image url="@../../images/OIP.jpg" />
+                         </image>
+                     </ImageView>
+                     <Label prefHeight="64.0" prefWidth="99.0" styleClass="developer-name" text="Randy Zapata Front-end" textAlignment="CENTER" wrapText="true" />
+         </children>
+              </VBox>
+            <VBox spacing="5" styleClass="developer-info">
+               <children>
+                  <ImageView fitHeight="100" fitWidth="100">
+                     <image>
+                        <Image url="@../../images/OIP.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="65.0" prefWidth="99.0" styleClass="developer-name" text="Jean Franco Back-end" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </VBox>
+            <VBox spacing="5" styleClass="developer-info">
+               <children>
+                  <ImageView fitHeight="100" fitWidth="100">
+                     <image>
+                        <Image url="@../../images/OIP.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="66.0" prefWidth="99.0" styleClass="developer-name" text="Ricardo Puerta Analista de Datos" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </VBox>
+            <VBox spacing="5" styleClass="developer-info">
+               <children>
+                  <ImageView fitHeight="100" fitWidth="100">
+                     <image>
+                        <Image url="@../../images/OIP.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="69.0" prefWidth="113.0" styleClass="developer-name" text="Juan Camilo Software Designer" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </VBox>
+      </children>
+   
+           <!-- Agrega más ImageView y Labels para más desarrolladores según sea necesario -->
+       </HBox>
+   </children>
+
+</VBox>
