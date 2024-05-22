@@ -7,8 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
+import okhttp3.*;
 
 import java.io.IOException;
+
 
 public class General {
     public static String RUTA_MRU = "/view/MruFXML.fxml";
@@ -29,8 +31,9 @@ public class General {
     public static String conversacion;
     public static final String API_URL = "https://api.openai.com/v1/chat/completions";
     public static final String API_KEY2 = "sk-proj-LEWjfQbV58XdHOlkaJNuT3BlbkFJ2hSP5avfhOrZN1ncoY6r";
-    public static final String API_KEY_3  = "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";
-    public static final String API_KEY_4 = "sk-proj-gcuRlbWte9Gu8MpXq6UrT3BlbkFJnpliiAEpivVaAVCf4Bud";;
+    public static final String API_KEY_3 = "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";
+    public static final String API_KEY_4 = "sk-proj-gcuRlbWte9Gu8MpXq6UrT3BlbkFJnpliiAEpivVaAVCf4Bud";
+    ;
     private static String MODEL = "gpt-3.5-turbo";
     public static int tiempoAnimacion;
 
@@ -61,6 +64,32 @@ public class General {
 
     }
 
+    public static String askRicharDoorAI ( String question ) throws IOException {
+        /*String contexto = "Eres un Asistente Virtual llamado Richard Door AI creado por Jeanfranco Boom Bolaño tu área de especialización será la física mecánica\n"
+                + "Estarás a cargo de resolver preguntas y problemas relacionados con el mundo físico en movimiento\n" +
+                "Ademas de eso, si el usuario te hace alguna pregunta relacionada a algun movimiento en especifico \n" +
+                "Toma en cuenta las siguientes tablas de valores: \n" + tablaValores + "\n Ahora te voy a dar el contexto de la conversacion \n" +
+                "(En caso de estar vacio ignora esto ultimo): " + conversacion + "\n Algo mas cuando des la respuesta NO coloques en ella tu nombre\n " +
+                "Pregunta del usuario: ";*/
+
+        // question = "" + question;
+        OkHttpClient client = new OkHttpClient ( );
+        MediaType mediaType = MediaType.parse ( "application/json" );
+        RequestBody body = RequestBody.create ( mediaType, "{\"messages\":[{\"role\":\"user\",\"content\":\"" + question + "\"}],\"temperature\":1.0,\"top_k\":5,\"top_p\":0.9,\"max_tokens\":150,\"web_access\":true}" );
+        Request request = new Request.Builder ( )
+                .url ( "https://chatgpt-42.p.rapidapi.com/geminipro" )
+                .post ( body )
+                .addHeader ( "x-rapidapi-key", "729ca0c766msh64630252676c7e4p14eacajsn1482b6555dc3" )
+                .addHeader ( "x-rapidapi-host", "chatgpt-42.p.rapidapi.com" )
+                .addHeader ( "Content-Type", "application/json" )
+                .build ( );
+
+        Response response = client.newCall ( request ).execute ( );
+        String result = response.body ( ).string ( );
+        return result.substring (
+                (result.indexOf ( ":" ) + 2), (result.indexOf ( "status" ) - 3) );
+    }
+
     public static String askChatGPT ( String question ) {
         //OpenAiService service = new OpenAiService("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");
         String contexto = "Eres un Asistente Virtual llamado Richard Door AI creado por Jeanfranco Boom Bolaño tu área de especialización será la física mecánica\n"
@@ -69,7 +98,7 @@ public class General {
                 "Toma en cuenta las siguientes tablas de valores: \n" + tablaValores + "\n Ahora te voy a dar el contexto de la conversacion \n" +
                 "(En caso de estar vacio ignora esto ultimo): " + conversacion + "\n Algo mas cuando des la respuesta NO coloques en ella tu nombre\n " +
                 "Pregunta del usuario: ";
-        OpenAiService service = new OpenAiService ( "sk-tn58wyUba4DFLWHm1b96F5D13dD14f40Bd4bE36fB54a8358" );
+        OpenAiService service = new OpenAiService ( "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" );
         question.replaceAll ( "`", "" );
         CompletionRequest completionRequest = CompletionRequest.builder ( )
                 .prompt ( contexto +

@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import util.General;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,13 +22,12 @@ public class AsistenteVirtualController implements Initializable {
     private TextArea textAreaRespuesta;
 
     @FXML
-    void eventoEnviarMensajeButton ( ActionEvent event ) {
-        String respuesta = General.askChatGPT ( textFieldMensaje.getText ( ) );
+    void eventoEnviarMensajeButton ( ActionEvent event ) throws IOException {
+        String respuesta = General.askRicharDoorAI ( textFieldMensaje.getText ( ) );
         textAreaRespuesta.appendText ( "Richard Door AI \n" );
         textAreaRespuesta.appendText ( respuesta + "\n" );
         textAreaRespuesta.appendText ( "\n \n" );
         General.conversacion = textAreaRespuesta.getText ();
-
     }
 
     @Override
