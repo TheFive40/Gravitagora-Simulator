@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane prefHeight="444.0" prefWidth="600.0" stylesheets="@../../css/ChatBot.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.menu.AsistenteVirtualController">
+    <center>
+      <AnchorPane prefHeight="359.0" prefWidth="600.0">
+         <children>
+            <ScrollPane layoutX="106.0" layoutY="85.0" prefHeight="283.0" prefViewportHeight="302.0" prefViewportWidth="440.0" prefWidth="470.0">
+               <content>
+                     <TextArea fx:id="textAreaRespuesta" editable="false" layoutX="136.0" layoutY="26.0" prefHeight="283.0" prefWidth="470.0" wrapText="true" BorderPane.alignment="CENTER" />
+               </content>
+            </ScrollPane>
+            <ListView layoutX="2.0" layoutY="85.0" prefHeight="284.0" prefWidth="94.0" />
+            <HBox layoutX="-1.0" layoutY="-1.0" prefHeight="52.0" prefWidth="606.0" style="-fx-background-color: #14A7CB;">
+               <children>
+                  <Label prefHeight="52.0" prefWidth="339.0" text="Asistente Virtual - Richard Door AI">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" layoutX="106.0" layoutY="40.0" prefHeight="52.0" prefWidth="471.0" text="Chat">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="40.0" prefHeight="52.0" prefWidth="96.0" text="Modelo">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+    </center>
+    <bottom>
+        <BorderPane styleClass="input-container" BorderPane.alignment="CENTER">
+            <center>
+                <TextField fx:id="textFieldMensaje" onAction="#eventoEnviarMensajeButton" prefHeight="40.0" prefWidth="540.0" promptText="Escribe un mensaje..." />
+            </center>
+            <right>
+                <Button fx:id="buttonEnviar" onAction="#eventoEnviarMensajeButton" prefHeight="38.0" prefWidth="86.0" text="Enviar">
+               <BorderPane.margin>
+                  <Insets left="5.0" />
+               </BorderPane.margin></Button>
+            </right>
+        </BorderPane>
+    </bottom>
+</BorderPane>

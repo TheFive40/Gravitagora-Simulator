@@ -23,7 +23,7 @@ public class AsistenteVirtualController implements Initializable {
 
     @FXML
     void eventoEnviarMensajeButton ( ActionEvent event ) throws IOException {
-        String respuesta = General.askRicharDoorAI ( textFieldMensaje.getText ( ) );
+        String respuesta = General.askChatGPT ( textFieldMensaje.getText ( ) );
         textAreaRespuesta.appendText ( "Richard Door AI \n" );
         textAreaRespuesta.appendText ( respuesta + "\n" );
         textAreaRespuesta.appendText ( "\n \n" );

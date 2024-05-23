@@ -1,0 +1,35 @@
+/* Estilos para el contenedor del campo de entrada */
+.input-container {
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-padding: 10px;
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #4682b4; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes del borde */
+}
+
+/* Estilos para el campo de entrada del usuario */
+#userInputField {
+    -fx-font-size: 14px; /* Tamaño de fuente */
+    -fx-background-color: #ffffff; /* Color de fondo */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #4682b4; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes del borde */
+    -fx-pref-width: 500px; /* Ancho preferido */
+}
+
+/* Estilos para el botón de enviar */
+.button {
+    -fx-background-color: #336699; /* Color de fondo */
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 5px; /* Radio de los bordes */
+    -fx-border-width: 1px; /* Ancho del borde */
+    -fx-border-color: #ffffff; /* Color del borde */
+    -fx-border-radius: 5px; /* Radio de los bordes del borde */
+}
+
+.button:hover {
+    -fx-background-color: #265c88; /* Cambio de color al pasar el mouse */
+}
+
