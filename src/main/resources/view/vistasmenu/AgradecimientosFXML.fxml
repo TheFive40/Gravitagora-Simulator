@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="384.0" prefWidth="1029.0" spacing="10" stylesheets="/css/Agradecimientos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.simulador.es.controller.AgradecimientoController">
+   <children>
+       <Label alignment="CENTER" prefHeight="78.0" prefWidth="972.0" styleClass="title" text="Agradecimientos" textAlignment="CENTER" />
+       <Label prefHeight="155.0" prefWidth="1018.0" styleClass="text" text="Queremos agradecer primeramente a Dios por otorgarnos la sabiduría y la oportunidad de realizar este proyecto educativo, que más que un proyecto, ha sido una lección de vida para nuestro desarrollo como personas íntegras y profesionales capacitados. Agradecemos a nuestros compañeros que aportaron su valiosa contribución, compartiendo sus conocimientos para llevar a cabo este proyecto. Expresamos nuestro especial agradecimiento a la profesora Sindy Chamorro por su invaluable apoyo, motivación y guía, que nos han inspirado a continuar nuestros estudios profesionales. Su orientación y apoyo fueron fundamentales para la realización de nuestro proyecto, compartiendo sus conocimientos y guiándonos paso a paso en el camino del aprendizaje." textAlignment="CENTER" wrapText="true" />
+       <Label alignment="CENTER" prefHeight="51.0" prefWidth="397.0" styleClass="professor" text="Sindy Mirella Chamorro Solano , PhD" />
+       <Button fx:id="agradecimientoButton" onAction="#handleClose" styleClass="close-button" text="Cerrar" />
+   </children>
+</VBox>

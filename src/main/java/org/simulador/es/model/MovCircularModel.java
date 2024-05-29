@@ -6,37 +6,13 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class MovCircularModel {
-    private IntegerProperty tiempo = new SimpleIntegerProperty();
-    private DoubleProperty valor = new SimpleDoubleProperty();
+public class MovCircularModel extends SuperModel{
 
     public MovCircularModel(int tiempo, double valor) {
+        super (tiempo,valor );
         setTiempo(tiempo);
-        setValor(valor);
-    }
-
-    public double getTiempo() {
-        return tiempo.get();
+        setValue (valor);
     }
 
 
-    public double getValor() {
-        return valor.get();
-    }
-
-    public IntegerProperty tiempoProperty() {
-        return tiempo;
-    }
-
-    public void setTiempo(int tiempo) {
-        this.tiempo.set(tiempo);
-    }
-
-    public DoubleProperty valorProperty() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor.set(valor);
-    }
 }

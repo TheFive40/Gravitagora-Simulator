@@ -1,6 +1,7 @@
 package org.simulador.es.controller.graficos;
 
 import javafx.beans.property.MapProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -12,6 +13,7 @@ import org.simulador.es.data.LocalStorage;
 import org.simulador.es.data.RegresionLineal;
 import org.simulador.es.model.CaidaLibreModel;
 import util.General;
+import util.TableViewToCsv;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ public class GraficoCaidaLibreController implements Initializable {
 
     public void llenarTabla () {
         tableColumnTiempo.setCellValueFactory ( e -> e.getValue ( ).tiempoProperty ( ) );
-        tableColumnVelocidad.setCellValueFactory ( e -> e.getValue ( ).velocidadProperty ( ) );
+        tableColumnVelocidad.setCellValueFactory ( e -> e.getValue ( ).valueProperty ( ) );
         tablaMovimiento.setItems ( caidaLibreDAO.getList ( ) );
     }
 
@@ -75,7 +77,11 @@ public class GraficoCaidaLibreController implements Initializable {
         scrollPane.setTooltip ( tooltip );
         lineChartVelocidadTiempo.getData ( ).addAll ( dataSeries );
     }
-
+    @FXML
+    void eventoGuardarDatos( ActionEvent event ){
+        TableViewToCsv <CaidaLibreDAO>viewToCsv = new TableViewToCsv<> (caidaLibreDAO);
+        viewToCsv.guardarExcel ();
+    }
     void eventoGraficoSeleccionado () {
         tipoInformacionChoiceBox.setOnAction ( e -> {
             String tipo = tipoInformacionChoiceBox.getSelectionModel ( ).getSelectedItem ( );

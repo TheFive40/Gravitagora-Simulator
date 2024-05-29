@@ -20,10 +20,10 @@
                      <TextArea fx:id="textAreaRespuesta" editable="false" layoutX="136.0" layoutY="26.0" prefHeight="283.0" prefWidth="470.0" wrapText="true" BorderPane.alignment="CENTER" />
                </content>
             </ScrollPane>
-            <ListView layoutX="2.0" layoutY="85.0" prefHeight="284.0" prefWidth="94.0" />
+            <ListView fx:id="listViewModels" layoutX="2.0" layoutY="85.0" onMouseClicked="#eventoClickModelo" prefHeight="284.0" prefWidth="94.0" />
             <HBox layoutX="-1.0" layoutY="-1.0" prefHeight="52.0" prefWidth="606.0" style="-fx-background-color: #14A7CB;">
                <children>
-                  <Label prefHeight="52.0" prefWidth="339.0" text="Asistente Virtual - Richard Door AI">
+                  <Label fx:id="lblTitulo" prefHeight="52.0" prefWidth="339.0" text="Asistente Virtual - QuantumQ AI">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>

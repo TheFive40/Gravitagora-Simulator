@@ -78,7 +78,17 @@ public class MovCircularController implements Initializable {
                 "La animación ha sido reestablecida", "Los datos anteriores de" +
                         " la animacion anterior han sido eliminado exitosamente ", Alert.AlertType.INFORMATION);
     }
-
+    @FXML
+    void eventoAgradecimientos(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_AGRADECIMIENTOS);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/Agradecimientos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("Agradecimientos");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
     @FXML
     public void iniciarSimulacion(ActionEvent event) {
         double frecuenciaAngular = Double.parseDouble(textFieldVelocidadAngular.getText());

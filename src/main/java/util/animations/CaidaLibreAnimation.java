@@ -2,8 +2,10 @@ package util.animations;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.MapProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -12,10 +14,14 @@ import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
+import org.simulador.es.controller.MainController;
 import util.General;
 
+import java.io.DataInput;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -107,20 +113,21 @@ public class CaidaLibreAnimation {
     }
 
     void formatoTabla () {
-        AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "" );
-        tablaCaidaLibre.set ( "Velocidad \t\t\t\tTiempo\n" );
-        velocidadTiempoCaidaLibre.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Aceleracion \t\t\tTiempo\n" );
-        aceleracionCaidaLibre.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set (tablaCaidaLibre.get ()  +  "Posicion \t\t\t\tTiempo\n" );
-        posicionTiempoCaidaLibre.forEach ( (k,v)->{
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        General.tablaValores = tablaCaidaLibre.get ();
+        HashMap<Integer, Double> velocidad = new HashMap<> ( velocidadTiempoCaidaLibre.get () );
+        HashMap<Integer, Double> posicion = new HashMap<> ( posicionTiempoCaidaLibre.get () );
+        HashMap<Integer, Double> aceleracion = new HashMap<> ( aceleracionCaidaLibre.get () );
+        velocidad.entrySet ().removeIf ( e-> e.getKey ()>70 );
+        posicion.entrySet ().removeIf ( e-> e.getKey ()>70 );
+        aceleracion.entrySet ().removeIf ( e-> e.getKey ()>70 );
+
+        General.tablaValores = "Caida Libre \n" +
+                "Tiempo VS Velocidad: " + velocidad + "\n" +
+                "Tiempo VS Aceleracion: " + aceleracion + "\n" +
+                "Tiempo VS Posicion: " + posicion + "\n" +
+                "(Las unidades del tiempo serán en segundos y la posicion en metros) \n" +
+                "Te voy a dar las condiciones iniciales del movimiento \n" +
+                "Gravedad: " + getGravedad () + " Altura: " + getAlturaInicial () + " Velocidad Inicial: "  + getVelocidadInicial () + "" +
+                "En caso que te pidan algun valor que no este en la tabla calculalo tomando en cuenta estas condiciones " ;
     }
 
 }

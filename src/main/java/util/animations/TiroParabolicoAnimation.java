@@ -68,6 +68,7 @@ public class TiroParabolicoAnimation {
 
     private int contador = 0, contador2 = 0;
 
+
     public TiroParabolicoAnimation ( Circle proyectil, AnchorPane contenedorAnimacion ) {
         setProjectile ( proyectil );
         setContenedorAnimacion ( contenedorAnimacion );
@@ -172,23 +173,13 @@ public class TiroParabolicoAnimation {
     }
 
     void formatoTabla () {
-        AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "" );
-        tablaCaidaLibre.set ( "Velocidad X\t\t\t\tTiempo\n" );
-        xVelocidadTiempoTiroParabolico.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Velocidad Y\t\t\tTiempo\n" );
-        yVelocidadTiempoTiroParabolico.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Aceleracion X\t\t\t\tTiempo\n" );
-        xAceleracionTiempoTiroParabolico.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Aceleracion Y\t\t\t\tTiempo\n" );
-        yAceleracionTiempoTiroParabolico.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        General.tablaValores = tablaCaidaLibre.get ( );
+        General.tablaValores =  "Tiro parabolico\n" +
+                "Tiempo VS Velocidad X: "+ xVelocidadTiempoTiroParabolico +"\n" +
+                "Tiempo VS Velocidad Y: " + yVelocidadTiempoTiroParabolico + "\n" +
+                "Tiempo VS Aceleracion X: " + xAceleracionTiempoTiroParabolico + "\n" +
+                "Tiempo VS Aceleracion Y: " + yAceleracionTiempoTiroParabolico + "\n" +
+                "Aclaracion para este movimiento (La velocidad en Y es negativa cuando el objeto esta subiendo, y positiva cuando va descendiendo)" +
+                "\nEs decir que estamos tomando la aceleracion de la gravedad como positiva ";
+
     }
 }

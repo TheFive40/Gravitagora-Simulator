@@ -350,7 +350,7 @@
             <Menu mnemonicParsing="false" text="Informacion de la App">
                <items>
                   <MenuItem fx:id="menuItemDev" mnemonicParsing="false" onAction="#eventoDevelopersMenuItem" text="Developers" />
-                  <MenuItem fx:id="menuItemAgradecimientos" mnemonicParsing="false" text="Agradecimientos" />
+                  <MenuItem fx:id="menuItemAgradecimientos" mnemonicParsing="false" onAction="#eventoAgradecimientos" text="Agradecimientos" />
                </items>
             </Menu>
          </menus>

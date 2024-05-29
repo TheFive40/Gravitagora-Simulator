@@ -7,36 +7,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TiroParabolicoModel {
-    private IntegerProperty tiempo = new SimpleIntegerProperty();
-    private DoubleProperty velocidad = new SimpleDoubleProperty();
+public class TiroParabolicoModel  extends  SuperModel{
+
 
     public TiroParabolicoModel(int tiempo, double velocidad) {
+        super (tiempo,velocidad );
         setTiempo(tiempo);
-        setVelocidad(velocidad);
+        setValue (velocidad);
     }
 
-    public int getTiempo() {
-        return tiempo.get();
-    }
-
-    public IntegerProperty tiempoProperty() {
-        return tiempo;
-    }
-
-    public void setTiempo(int tiempo) {
-        this.tiempo.set(tiempo);
-    }
-
-    public double getVelocidad() {
-        return velocidad.get();
-    }
-
-    public DoubleProperty velocidadProperty() {
-        return velocidad;
-    }
-
-    public void setVelocidad(double velocidad) {
-        this.velocidad.set(velocidad);
-    }
 }

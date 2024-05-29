@@ -12,12 +12,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
+import org.simulador.es.controller.MruController;
 import util.General;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static org.simulador.es.data.LocalStorage.*;
 
@@ -66,7 +66,10 @@ public class MruAnimation {
                         (velocidad < 0 && vehiculo.getTranslateX ( ) <= 0)) {
                     General.tiempoAnimacion = tiempo.get ( );
                     textFieldTiempo.setText ( tiempo.get ( ) + " s" );
+                    General.condicionesIniciales += "Tiempo final:  " + tiempo.get () + "s";
                     timeLine.stop ( );
+                    MruController.limiteIzquierda = velocidad < 0;
+                    MruController.limiteDerecha = desplazamiento > 0;
                     formatoTabla ( );
                 }
             } ) );
@@ -83,16 +86,11 @@ public class MruAnimation {
     }
 
     void formatoTabla () {
-        AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "\nMovimiento Rectilineo Uniforme \n" );
-        tablaCaidaLibre.set ( "Velocidad \t\t\t\tTiempo\n" );
-        velocidadTiempoMru.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Desplazamiento \t\t\tTiempo\n" );
-        desplazamientoTiempoMru.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
 
-        General.tablaValores = tablaCaidaLibre.get ( );
+        General.tablaValores = "Movimiento Rectilineo Uniforme \nTiempo vs Velocidad "+  velocidadTiempoMru
+                + "\nTiempo vs Desplazamiento " + desplazamientoTiempoMru + "\n(Las medidas del desplazamiento se manejan" +
+                "en metros y el tiempo en segundos)";
+
+
     }
 }

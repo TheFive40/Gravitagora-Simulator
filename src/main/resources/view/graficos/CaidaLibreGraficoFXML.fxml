@@ -37,7 +37,6 @@
                       </FXCollections>
                   </items>
               </ChoiceBox>
-            <Label fx:id="labelEcuacion" prefHeight="25.0" prefWidth="250.0" text="Label" />
       </children>
        </HBox>
    
@@ -74,7 +73,7 @@
        <Separator />
        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="758.0" spacing="10">
           <children>
-              <Button fx:id="btnGuardarDatos" text="Guardar Datos" />
+              <Button fx:id="btnGuardarDatos" onAction="#eventoGuardarDatos" text="Guardar Datos" />
               <Button fx:id="btnEcuacion" text="Limpiar datos" />
           </children>
        </HBox>

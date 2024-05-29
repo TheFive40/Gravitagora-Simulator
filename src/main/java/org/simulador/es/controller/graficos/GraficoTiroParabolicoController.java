@@ -1,6 +1,7 @@
 package org.simulador.es.controller.graficos;
 
 import javafx.beans.property.MapProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -9,6 +10,7 @@ import javafx.scene.control.*;
 import org.simulador.es.dao.TiroParabolicoDAO;
 import org.simulador.es.data.RegresionLineal;
 import org.simulador.es.model.TiroParabolicoModel;
+import util.TableViewToCsv;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -65,7 +67,11 @@ public class GraficoTiroParabolicoController implements Initializable {
             }
         });
     }
-
+    @FXML
+    void eventoGuardarDatos( ActionEvent event ){
+        TableViewToCsv<TiroParabolicoDAO> tableViewToCsv = new TableViewToCsv<> ( tiroParabolicoDAO );
+        tableViewToCsv.guardarExcel ();
+    }
     public void llenarGraficoTiroParabolico(MapProperty<? extends Number, ? extends Number> mapProperty) {
         RegresionLineal regresionLineal = new RegresionLineal ();
         tiroParabolicoDAO.getList().clear();
@@ -85,24 +91,9 @@ public class GraficoTiroParabolicoController implements Initializable {
         lineChartVelocidadTiempo.getData().addAll(dataSeries);
     }
 
-  /*  public void llenarGraficoVelocidad(MapProperty<Integer, Double> yVelocidad) {
-        tiroParabolicoDAO.getList().clear();
-        lineChartVelocidadTiempo.getData().clear();
-        XYChart.Series<Number, Number> dataSeries = new XYChart.Series<>();
-        xVelocidad.forEach((k,v)->{
-            dataSeries.getData().add(new XYChart.Data<>(k,v));
-            tiroParabolicoDAO.add(new TiroParabolicoModel(k, v));
-        });
-        yVelocidad.forEach((k, v) -> {
-            dataSeries.getData().add(new XYChart.Data<>(k, v));
-            tiroParabolicoDAO.add(new TiroParabolicoModel(k, v));
-        });
-        lineChartVelocidadTiempo.getData().addAll(dataSeries);
-    }*/
-
     public void llenarTabla() {
         tableColumnTiempo.setCellValueFactory(e -> e.getValue().tiempoProperty());
-        tableColumnVelocidad.setCellValueFactory(e -> e.getValue().velocidadProperty());
+        tableColumnVelocidad.setCellValueFactory(e -> e.getValue().valueProperty ());
         tablaMovimiento.setItems(tiroParabolicoDAO.getList());
     }
 

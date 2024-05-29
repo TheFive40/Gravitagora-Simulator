@@ -1,5 +1,4 @@
 package org.simulador.es.controller;
-
 import javafx.beans.property.MapProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.FXCollections;
@@ -21,7 +20,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Shape;
 import org.simulador.es.data.Gravedad;
 import util.animations.CaidaLibreAnimation;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -93,7 +91,6 @@ public class MainController implements Initializable {
 
     @FXML
     private Slider sliderAnguloInicial;
-
     private static CaidaLibreAnimation caidaLibre;
     private static String item = "Tierra";
     @FXML
@@ -179,12 +176,23 @@ public class MainController implements Initializable {
         General.agregarContenedorPadre(General.RUTA_TIRO_PARABOLICO, contenedorPrincipal);
     }
     @FXML
+    void eventoAgradecimientos(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_AGRADECIMIENTOS);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/Agradecimientos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("Agradecimientos");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     void eventoDevelopersMenuItem(ActionEvent event) throws IOException {
         Parent parent = General.obtenerContenedorPadre(General.DEVELOPERS_RUTA);
         Scene scene = new Scene(parent);
         scene.getStylesheets().add(getClass().getResource("/css/Desarrolladores.css").toExternalForm());
         Stage stage = new Stage();
-        stage.setTitle("Desarrolladores");
+        stage.setTitle("Programadores");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

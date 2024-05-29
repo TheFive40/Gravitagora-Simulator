@@ -71,7 +71,7 @@
        <Separator />
        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="758.0" spacing="10">
           <children>
-              <Button text="Guardar Datos" />
+              <Button fx:id="btnGuardarDatos" onAction="#eventoGuardarDatos" text="Guardar Datos" />
               <Button text="Limpiar Datos" />
           </children>
        </HBox>

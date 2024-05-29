@@ -90,19 +90,13 @@ public class MovCircularAnimation {
     }
 
     void formatoTabla () {
-        AtomicReference<String> tablaCaidaLibre = new AtomicReference<> ( "\nMovimiento CIRCULAR \n" );
-        tablaCaidaLibre.set ( "Velocidad \t\t\t\tTiempo\n" );
-        velocidadTiempoMovCircular.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Aceleracion \t\t\tTiempo\n" );
-        aceleracionTiempoMovCircular.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + "Posicion \t\t\t\tTiempo\n" );
-        posicionTiempoMovCircular.forEach ( ( k, v ) -> {
-            tablaCaidaLibre.set ( tablaCaidaLibre.get ( ) + k + "\t\t\t\t\t\t" + v + "\n" );
-        } );
-        General.tablaValores = tablaCaidaLibre.get ( );
+
+        aceleracionTiempoMovCircular.get ( ).entrySet ( ).removeIf ( k -> k.getKey ( ) > General.tiempoAnimacion );
+        posicionTiempoMovCircular.get ( ).entrySet ( ).removeIf ( k -> k.getKey ( ) > General.tiempoAnimacion );
+        velocidadTiempoMovCircular.get ( ).entrySet ( ).removeIf ( k -> k.getKey ( ) > General.tiempoAnimacion );
+        General.tablaValores = "Movimiento Circular Uniforme \n" +
+                "Tiempo VS Velocidad: " + velocidadTiempoMovCircular + "\n" +
+                "Tiempo VS Aceleracion: " + aceleracionTiempoMovCircular + "\n" +
+                "Tiempo VS Posicion: " + posicionTiempoMovCircular;
     }
 }

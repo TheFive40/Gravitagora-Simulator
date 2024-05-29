@@ -222,7 +222,17 @@ public class TiroParabolicoController implements Initializable {
         stage.setScene ( scene );
         stage.show ( );
     }
-
+    @FXML
+    void eventoAgradecimientos(ActionEvent event) throws IOException {
+        Parent parent = General.obtenerContenedorPadre(General.RUTA_AGRADECIMIENTOS);
+        Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource("/css/Agradecimientos.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("Agradecimientos");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
     private void zoomEvent () {
         contenedorAnimacion.addEventFilter ( ScrollEvent.ANY, event -> {
             if (event.isControlDown ( )) {
@@ -238,8 +248,8 @@ public class TiroParabolicoController implements Initializable {
 
     private void clicarMouseEvent () {
         canvaComponent.setOnMouseClicked ( e -> {
-            double x = e.getX ( );
-            double y = e.getY ( );
+            int x = (int) e.getX ( );
+            int y = (int) e.getY ( );
             double endY = 0;
             for (Punto punto : puntoObservableList) {
                 int contador = 0;

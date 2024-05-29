@@ -1,6 +1,7 @@
 package org.simulador.es.controller.graficos;
 
 import javafx.beans.property.MapProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -11,6 +12,7 @@ import org.simulador.es.data.LocalStorage;
 import org.simulador.es.data.RegresionLineal;
 import org.simulador.es.model.MruModel;
 import util.General;
+import util.TableViewToCsv;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -39,10 +41,10 @@ public class GraficoMruController implements Initializable {
 
 
     void llenarTabla(){
-        desplazamientoTiempoMru.get().entrySet().removeIf(x->x.getKey()> General.tiempoAnimacion);
-        velocidadTiempoMru.get().entrySet().removeIf(x->x.getKey()>General.tiempoAnimacion);
+       /* desplazamientoTiempoMru.get().entrySet().removeIf(x->x.getKey()> General.tiempoAnimacion);
+        velocidadTiempoMru.get().entrySet().removeIf(x->x.getKey()>General.tiempoAnimacion);*/
         tableColumnTiempo.setCellValueFactory(e-> e.getValue().tiempoProperty());
-        tableColumnVelocidad.setCellValueFactory(e-> e.getValue().velocidadProperty());
+        tableColumnVelocidad.setCellValueFactory(e-> e.getValue().valueProperty ());
         tablaMovimiento.setItems(mruDAO.getList());
     }
     void eventoGraficoSeleccionado(){
@@ -62,6 +64,11 @@ public class GraficoMruController implements Initializable {
                 default -> throw new IllegalArgumentException();
             }
         });
+    }
+    @FXML
+    void eventoGuardarDatos( ActionEvent event ){
+        TableViewToCsv<MruDAO> tableViewToCsv = new TableViewToCsv<> ( mruDAO );
+        tableViewToCsv.guardarExcel ();
     }
     public void llenarGraficoLineal(MapProperty<?extends Number,?extends Number> mapProperty) {
         RegresionLineal regresionLineal = new RegresionLineal ();
