@@ -54,7 +54,7 @@ NOTA: Asegurate de tener instalado Java 21
 
 👉 [Leer Artículo](https://download943.mediafire.com/8louq2eqd0lgdit4tEHDi_7afaDCymLYqlSvIayEjKWFsnvb8a_AqpiUpsi2BcbSgtGASV2uIvqdIi5df2vZZS49TZgToyJ2Xx2VeuNQNRiKReH1933raz1WiGqL1dLxf4QwcyrF_cZqjRoJkNR30AE2LfyehZ3shDQcjKAnA-ZZVw/gkde36rqu7heils/Articulo-Gravitagora+IEEE.docx.pdf) 👈
 
-En este artículo, exploramos las motivaciones, tecnologías utilizadas y futuros planes para el simulador. 🌌
+En este artículo, exploramos la teoria, y tecnologías utilizadas y futuros planes para el simulador. 🌌
 
 ---
 
