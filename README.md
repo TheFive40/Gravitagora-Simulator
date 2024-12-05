@@ -37,23 +37,39 @@
 
 ---
 
+## 📥 Descargar
+
+Descarga la última versión del ejecutable (.exe) para Windows desde el siguiente enlace:
+
+👉 [Descargar Gravitagora Simulator][(https://github.com/TheFive40/Simulador-de-Fisica/releases/latest)](https://download944.mediafire.com/x4z2hdb23wtgdk1l-0uDEtbDqVD0acxoFS8l6NJbj5ljPlzDgUgF9jXnYnLe6kzoRO5rQnx04MGFFI--KJh0vxCavFq_3D9MCEbPqGJ5FnnFkQXvyj1Z-hA7WISo6KpJ22Wi7H8X8I5wSrup-oXfnMhip-QuhXQxZo-w9_YyT5L4Vw/gmyhrxqjied263y/Gravitagora+Simulator.exe) 👈
+
+Una vez descargado, simplemente ejecuta el archivo y comienza a explorar los movimientos físicos de manera interactiva. 🌟
+
+---
+
+## 📄 Lee Más sobre el Proyecto
+
+¿Quieres conocer más detalles sobre el desarrollo y las ideas detrás de Gravitagora Simulator? Lee el artículo completo sobre el proyecto aquí:
+
+👉 [Leer Artículo][(https://github.com/TheFive40/Simulador-de-Fisica/wiki/Articulo-Gravitagora)](https://download943.mediafire.com/8louq2eqd0lgK2hErrlobV1Br0JDSOTje3IxPNssLaovt8Ao3JNZ28XQd7yDsGQr0aPV5q4dsmvCPeGPCMjun-CcyKffOR8cYKglK-KByCBt6KLIWb-TtUwBBlb40wY34lwWrquOPgpxrHyxsI9ur8vMw_hl91N0OxkpIG_9JF6ung/gkde36rqu7heils/Articulo-Gravitagora+IEEE.docx.pdf) 👈
+
+En este artículo, exploramos las motivaciones, tecnologías utilizadas y futuros planes para el simulador. 🌌
+
+---
+
 ## 📸 Vista Previa
 
 ### 🌆 Caída Libre
 ![image](https://github.com/user-attachments/assets/64fc48b9-ce5f-4e49-9e8e-d4a24daee8cc)
 
-
 ### 🚗 Movimiento Rectilíneo Uniforme (MRU)
 ![image](https://github.com/user-attachments/assets/56a74d4c-17e7-4f4a-961a-4b4cc512bbe3)
-
 
 ### 🪐 Movimiento Circular
 ![image](https://github.com/user-attachments/assets/65653a66-e6a2-4cf9-90a4-8e1618b47fff)
 
-
 ### 🏹 Tiro Parabólico
 ![image](https://github.com/user-attachments/assets/af5e365a-bce1-4ed3-9416-56a7f4c3ba6a)
-
 
 ---
 
