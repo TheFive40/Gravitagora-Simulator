@@ -41,7 +41,7 @@
 
 Descarga la última versión del ejecutable (.exe) para Windows desde el siguiente enlace:
 
-👉 [Descargar Gravitagora Simulator][(https://github.com/TheFive40/Simulador-de-Fisica/releases/latest)](https://download944.mediafire.com/x4z2hdb23wtgdk1l-0uDEtbDqVD0acxoFS8l6NJbj5ljPlzDgUgF9jXnYnLe6kzoRO5rQnx04MGFFI--KJh0vxCavFq_3D9MCEbPqGJ5FnnFkQXvyj1Z-hA7WISo6KpJ22Wi7H8X8I5wSrup-oXfnMhip-QuhXQxZo-w9_YyT5L4Vw/gmyhrxqjied263y/Gravitagora+Simulator.exe) 👈
+👉 [Descargar Gravitagora Simulator](https://download944.mediafire.com/x4z2hdb23wtgdk1l-0uDEtbDqVD0acxoFS8l6NJbj5ljPlzDgUgF9jXnYnLe6kzoRO5rQnx04MGFFI--KJh0vxCavFq_3D9MCEbPqGJ5FnnFkQXvyj1Z-hA7WISo6KpJ22Wi7H8X8I5wSrup-oXfnMhip-QuhXQxZo-w9_YyT5L4Vw/gmyhrxqjied263y/Gravitagora+Simulator.exe) 👈
 
 Una vez descargado, simplemente ejecuta el archivo y comienza a explorar los movimientos físicos de manera interactiva. 🌟
 
@@ -51,7 +51,7 @@ Una vez descargado, simplemente ejecuta el archivo y comienza a explorar los mov
 
 ¿Quieres conocer más detalles sobre el desarrollo y las ideas detrás de Gravitagora Simulator? Lee el artículo completo sobre el proyecto aquí:
 
-👉 [Leer Artículo] (https://www.mediafire.com/file/gkde36rqu7heils/Articulo-Gravitagora_IEEE.docx.pdf/file) 👈
+👉 [Leer Artículo](https://www.mediafire.com/file/gkde36rqu7heils/Articulo-Gravitagora_IEEE.docx.pdf/file) 👈
 
 En este artículo, exploramos las motivaciones, tecnologías utilizadas y futuros planes para el simulador. 🌌
 
