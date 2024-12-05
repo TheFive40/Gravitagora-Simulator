@@ -40,19 +40,19 @@
 ## 📸 Vista Previa
 
 ### 🌆 Caída Libre
-![Caída Libre]![image](https://github.com/user-attachments/assets/64fc48b9-ce5f-4e49-9e8e-d4a24daee8cc)
+![image](https://github.com/user-attachments/assets/64fc48b9-ce5f-4e49-9e8e-d4a24daee8cc)
 
 
 ### 🚗 Movimiento Rectilíneo Uniforme (MRU)
-![MRU]![image](https://github.com/user-attachments/assets/56a74d4c-17e7-4f4a-961a-4b4cc512bbe3)
+![image](https://github.com/user-attachments/assets/56a74d4c-17e7-4f4a-961a-4b4cc512bbe3)
 
 
 ### 🪐 Movimiento Circular
-![Movimiento Circular]![image](https://github.com/user-attachments/assets/65653a66-e6a2-4cf9-90a4-8e1618b47fff)
+![image](https://github.com/user-attachments/assets/65653a66-e6a2-4cf9-90a4-8e1618b47fff)
 
 
 ### 🏹 Tiro Parabólico
-![Tiro Parabólico]![image](https://github.com/user-attachments/assets/af5e365a-bce1-4ed3-9416-56a7f4c3ba6a)
+![image](https://github.com/user-attachments/assets/af5e365a-bce1-4ed3-9416-56a7f4c3ba6a)
 
 
 ---
