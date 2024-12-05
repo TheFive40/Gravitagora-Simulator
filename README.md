@@ -51,7 +51,7 @@ Una vez descargado, simplemente ejecuta el archivo y comienza a explorar los mov
 
 ¿Quieres conocer más detalles sobre el desarrollo y las ideas detrás de Gravitagora Simulator? Lee el artículo completo sobre el proyecto aquí:
 
-👉 [Leer Artículo](https://www.mediafire.com/file/gkde36rqu7heils/Articulo-Gravitagora_IEEE.docx.pdf/file) 👈
+👉 [Leer Artículo](https://download943.mediafire.com/8louq2eqd0lgdit4tEHDi_7afaDCymLYqlSvIayEjKWFsnvb8a_AqpiUpsi2BcbSgtGASV2uIvqdIi5df2vZZS49TZgToyJ2Xx2VeuNQNRiKReH1933raz1WiGqL1dLxf4QwcyrF_cZqjRoJkNR30AE2LfyehZ3shDQcjKAnA-ZZVw/gkde36rqu7heils/Articulo-Gravitagora+IEEE.docx.pdf) 👈
 
 En este artículo, exploramos las motivaciones, tecnologías utilizadas y futuros planes para el simulador. 🌌
 
