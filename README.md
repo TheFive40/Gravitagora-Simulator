@@ -45,6 +45,7 @@ Descarga la última versión del ejecutable (.exe) para Windows desde el siguien
 
 Una vez descargado, simplemente ejecuta el archivo y comienza a explorar los movimientos físicos de manera interactiva. 🌟
 
+NOTA: Asegurate de tener instalado Java 21 
 ---
 
 ## 📄 Lee Más sobre el Proyecto
